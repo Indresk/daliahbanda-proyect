@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "src": "/assets/(.*)",
+      "dest": "/client/assets/$1"
+    },
+    {
+      "src": "/(.*\\.(ico|png|jpg|jpeg|svg|webp|css|js|woff2?))",
+      "dest": "/client/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/ssr.js"
     }
