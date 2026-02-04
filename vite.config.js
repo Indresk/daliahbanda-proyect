@@ -8,7 +8,9 @@ export default defineConfig({
     tailwindcss(),
     react()],
     build: {
-      outDir: "dist",
-      ssr: "src/entry-server.jsx",
+    outDir: "dist/client"
+    },
+    ssr: {
+      noExternal: ["react", "react-dom"]
     }
 })
