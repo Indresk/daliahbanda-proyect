@@ -3,15 +3,16 @@ import App from "./App"
 
 export const routes = [
   {
-    element: <App />,
+    id: "root",
+    Component: App,
     children: [
       {
-        path: "/",
-        element: <ContenidoTemporal />
+        index: true,
+        Component: ContenidoTemporal,
       },
       {
-        path: "/test",
-        element: <h1>test01</h1>
+        path: "test",
+        Component: () => <h1>test01</h1>,
       }
     ]
   }
