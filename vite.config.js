@@ -14,7 +14,7 @@ export default defineConfig(({ command }) => {
         outDir: "dist/client"
       },
       ssr: {
-        noExternal: ["react", "react-dom",'react-router-dom']
+        noExternal: ["react", "react-dom"]
       }
     })
   };
