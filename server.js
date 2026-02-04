@@ -1,17 +1,14 @@
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { render } from "./dist/server/entry-server.js";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const template = fs.readFileSync(
-  path.join(__dirname, "dist/client/index.html"),
-  "utf-8"
-);
+import fs from "fs";
+import path from "path";
+import { render } from "../dist/server/entry-server.js";
 
 export default async function handler(req, res) {
   try {
+    const template = fs.readFileSync(
+      path.resolve("dist/client/index.html"),
+      "utf-8"
+    );
+
     const { html } = await render(req.url);
 
     const finalHtml = template.replace("<!--app-html-->", html);
