@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
-  ssr: {
-    noExternal: ["react", "react-dom"]
-  }
+    build: {
+      outDir: "dist",
+      ssr: "src/entry-server.jsx",
+    }
 })
