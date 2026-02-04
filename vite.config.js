@@ -7,9 +7,6 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
-  build: {
-    outDir: "dist/"
-  },
   ssr: {
     noExternal: ["react", "react-dom"]
   }
