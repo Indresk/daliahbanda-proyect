@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "node server",
-    "build": "vite build && vite build --mode ssr",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist/server",
+    "build:client": "vite build",
+    "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
     "preview": "cross-env NODE_ENV=production node server",
-    "clean": "rm -rf dist node_modules/.vite && npm run build",
-    "deploy": "npm run clean && vercel --prod"
+    "clean": "rm -rf dist node_modules/.vite"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",

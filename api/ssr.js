@@ -9,9 +9,10 @@ export default async function handler(req, res) {
   try {
     const templatePath = path.resolve(__dirname, "../dist/client/index.html")
     const template = fs.readFileSync(templatePath, "utf-8")
-
+    
+    const url = (req.originalUrl || req.url || '/').replace(process.env.BASE || '/', '/');
     // ✅ render con hydrationData (igual que server.js)
-    const rendered = await render(req.url)
+    const rendered = await render(url)
 
     const html = template
       .replace("<!--app-head-->", rendered.head ?? "")
