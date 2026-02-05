@@ -11,7 +11,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       tailwindcss(),
       react({
-        // ✅ Fix para SSR dev
+        //  Fix para SSR dev
         jsxImportSource: 'react'
       })
     ],
@@ -23,21 +23,31 @@ export default defineConfig(({ command, mode }) => {
         ssr: true,
         outDir: 'dist/server',
         target: 'node18',
+        rollupOptions: {
+          output: {
+            format: 'esm',  // ESM puro
+            inlineDynamicImports: true  // Inline todo
+          }
+        },
         minify: false 
       })
     },
     ssr: {
-      // ✅ SSR dev: React JSX externo (evita module error)
-      noExternal: isBuild 
-        ? ['react', 'react-dom']
-        : []
+      //  SSR dev: React JSX externo (evita module error)
+      noExternal: []
+      // noExternal: isBuild 
+      //   ? ['react', 'react-dom']
+      //   : []
     },
-    optimizeDeps: {
-      include: ['react', 'react-dom'],
-      exclude: []
-    },
-    define: {
-      global: 'globalThis'
+    experimental: {
+      renderBuiltUrl: false
     }
+    // optimizeDeps: {
+    //   include: ['react', 'react-dom'],
+    //   exclude: []
+    // },
+    // define: {
+    //   global: 'globalThis'
+    // }
   }
 })
