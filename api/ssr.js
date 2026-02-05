@@ -2,15 +2,18 @@ import fs from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
 import { render } from "../dist/server/entry-server.js"
-console.log('Render imported:', typeof render);
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default async function handler(req, res) {
   try {
+    console.log('Render imported:', typeof render);
     const templatePath = path.resolve(__dirname, "../dist/client/index.html")
     const template = fs.readFileSync(templatePath, "utf-8")
 
     const url = (req.originalUrl || req.url || '/').replace(process.env.BASE || '/', '/');
+
+    console.log('Render URL:', url);
     // ✅ render con hydrationData (igual que server.js)
     const rendered = await render(url)
 
