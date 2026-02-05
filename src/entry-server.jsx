@@ -4,12 +4,13 @@ import { createStaticHandler,createStaticRouter,StaticRouterProvider } from 'rea
 import { routes } from './routes'
 
 /**
- * @param {string} _url
+ * @param {string} _url - Express request
  */
-export async function render(_url){
+export async function render(_url,req){
   const handler = createStaticHandler(routes)
 
-  const fullUrl = `http://localhost:5173${_url.startsWith('/') ? _url : '/' + _url}`
+  const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`
+  //const fullUrl = `http://localhost:5173${_url.startsWith('/') ? _url : '/' + _url}`
   console.log('Server fullUrl:', fullUrl)
   const request = new Request(fullUrl)
   //const request = new Request(`http://localhost${_url}`)

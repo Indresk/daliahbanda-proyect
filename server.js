@@ -14,6 +14,12 @@ const templateHtml = isProduction
 // Create http server
 const app = express()
 
+app.use((req, res, next) => {
+  if (!req.protocol) {
+    req.protocol = req.get('X-Forwarded-Proto') || 'http'
+  }
+  next()
+})
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */
 let vite
@@ -48,7 +54,7 @@ app.use(/.*$/, async (req, res) => {  // ← CAMBIO AQUÍ: '*' en vez de '*all'
       render = (await import('./dist/server/entry-server.js')).render
     }
 
-    const rendered = await render(url)
+    const rendered = await render(url, req)
 
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
