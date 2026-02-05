@@ -11,7 +11,7 @@ export const routes = [
       {
         index: true,
         loader: () => ({}),
-        head:metaIndex,
+        head:() => <metaIndex />,
         Component: ContenidoTemporal,
       },
       {
