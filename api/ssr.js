@@ -46,14 +46,14 @@ app.use(/.*$/, async (req, res) => {
     let template
     let render
     if (!isProduction) {
-      template = await fs.readFile('./index.html', 'utf-8')
+      template = await fs.readFile('../index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
-      render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
+      render = (await vite.ssrLoadModule('../src/entry-server.jsx')).render
     } else {
       const templatePath = join(__dirname, '../dist/client/index.html')
       template = await fs.readFile(templatePath, 'utf-8')
       //template = templateHtml
-      render = (await import('./dist/server/entry-server.js')).render
+      render = (await import('../dist/server/entry-server.js')).render
     }
 
     const rendered = await render(url,req)
