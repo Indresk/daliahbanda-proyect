@@ -1,13 +1,17 @@
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
 import fs from 'node:fs/promises'
 import express from 'express'
 
 // Constants
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 const isProduction = process.env.NODE_ENV === 'production'
 const base = process.env.BASE || '/'
 
 // Cached production assets
 const templateHtml = isProduction
-  ? await fs.readFile('./dist/client/index.html', 'utf-8')
+  ? await fs.readFile(join(__dirname, '../dist/client/index.html'), 'utf-8')
   : ''
 
 // Create http server → EXPORTAR app
