@@ -33,16 +33,13 @@ if (!isProduction) {
 }
 
 // Serve HTML
-app.use('*all', async (req, res) => {
+app.use(/.*$/, async (req, res) => {  // ← CAMBIO AQUÍ: '*' en vez de '*all'
   try {
     const url = req.originalUrl.replace(base, '')
 
-    /** @type {string} */
     let template
-    /** @type {import('./src/entry-server.js').render} */
     let render
     if (!isProduction) {
-      // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
       render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
@@ -56,6 +53,10 @@ app.use('*all', async (req, res) => {
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
+      .replace(
+        `<!--app-initial-props-->`, 
+        `<script>window.__INITIAL_DATA__=${JSON.stringify(rendered.hydrationData || {})}</script>`
+      )
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {
@@ -65,7 +66,6 @@ app.use('*all', async (req, res) => {
   }
 })
 
-// Start http server
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`)
 })
