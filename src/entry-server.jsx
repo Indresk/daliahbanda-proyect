@@ -28,7 +28,7 @@ export async function render(_url,req){
 
   console.log('Server URL:', _url, '→ Context matches:', context.matches?.map(m => m.pathname))
 
-    return { 
+  return { 
     html,
     head: '',
     hydrationData: context

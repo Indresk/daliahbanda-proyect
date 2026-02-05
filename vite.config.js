@@ -21,17 +21,23 @@ export default defineConfig(({ command, mode }) => {
       }),
       ...(isSSR && {
         ssr: true,
-        outDir: 'dist/server'
+        outDir: 'dist/server',
+        target: 'node18',
+        minify: false 
       })
     },
     ssr: {
       // ✅ SSR dev: React JSX externo (evita module error)
       noExternal: isBuild 
-        ? ['react', 'react-dom', 'react-router-dom']
+        ? ['react', 'react-dom']
         : []
     },
     optimizeDeps: {
-      include: ['react', 'react-dom']
+      include: ['react', 'react-dom'],
+      exclude: []
+    },
+    define: {
+      global: 'globalThis'
     }
   }
 })
