@@ -4,15 +4,17 @@ import fs from 'node:fs/promises'
 import express from 'express'
 
 // Constants
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 const isProduction = process.env.NODE_ENV === 'production'
 const base = process.env.BASE || '/'
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+
 // Cached production assets
-const templateHtml = isProduction
-  ? await fs.readFile(join(__dirname, '../dist/client/index.html'), 'utf-8')
-  : ''
+// const templateHtml = isProduction
+//   ? await fs.readFile(join(__dirname, '../dist/client/index.html'), 'utf-8')
+//   : ''
 
 // Create http server → EXPORTAR app
 export const app = express()  // ← AGREGAR 'export'
@@ -47,7 +49,9 @@ app.use(/.*$/, async (req, res) => {
       template = await vite.transformIndexHtml(url, template)
       render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
     } else {
-      template = templateHtml
+      const templatePath = join(__dirname, '../dist/client/index.html')
+      template = await fs.readFile(templatePath, 'utf-8')
+      //template = templateHtml
       render = (await import('./dist/server/entry-server.js')).render
     }
 
