@@ -10,7 +10,7 @@ const router = createBrowserRouter(routes, { hydrationData })
 
 hydrateRoot(
   document.getElementById('root'),
-  <StrictMode>
+  //<StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
+  //</StrictMode>,
 )

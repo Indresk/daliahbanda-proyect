@@ -21,9 +21,9 @@ export async function render(_url,req){
   const router = createStaticRouter(handler.dataRoutes, context)
 
   const html = renderToString(
-    <StrictMode>
+    //<StrictMode>
         <StaticRouterProvider router={router} context={context} />
-    </StrictMode>,
+    //</StrictMode>,
   )
 
   console.log('Server URL:', _url, '→ Context matches:', context.matches?.map(m => m.pathname))
