@@ -6,6 +6,7 @@ import { metaIndex } from './meta/metaIndex'
 let head = ''
 let metaFlag = true
 const getHead = (pathname) => {
+  metaFlag = true
   if (pathname === '/') return metaIndex
   metaFlag = false
   return {
