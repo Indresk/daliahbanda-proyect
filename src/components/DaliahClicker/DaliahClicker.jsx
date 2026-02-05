@@ -14,7 +14,7 @@ const DaliahClicker=()=>{
   }, [daliahCookieCount]);
 return(
     <div class="container">
-        <a class="cookie-button"href=""  onClick={()=>{setDaliahCookieCount(daliahCookieCount+1)}}><img src="\DaliahLogoWhiteIcon.ico" width="100px"  alt="" /></a>
+        <button class="cookie-button"href=""  onClick={()=>{setDaliahCookieCount(daliahCookieCount+1)}}><img src="\DaliahLogoWhiteIcon.ico" width="100px"  alt="" /></button>
         <h2>Daligalletas: {daliahCookieCount}</h2>
     </div>
 );
