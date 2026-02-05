@@ -4,34 +4,33 @@ import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig(({ command, mode }) => {
-  const isBuild = command === 'build'
-  const isSSR = mode === 'ssr'
-
+  const isSSRBuild = mode === 'ssr'
+  
   return {
     plugins: [
       tailwindcss(),
-      react({
-        // ✅ Fix para SSR dev
-        jsxImportSource: 'react'
-      })
+      react()
     ],
     build: {
-      ...(isBuild && !isSSR && {
+      target: 'es2022',  // ← Production target
+      minify: 'terser',  // ← Minifica development chunks
+      ...(isSSRBuild ? {
+        ssr: 'src/entry-server.jsx',
+        outDir: 'dist/server',
+        rollupOptions: {
+          output: {
+            entryFileNames: 'entry-server.js'
+          }
+        }
+      } : {
         outDir: 'dist/client'
-      }),
-      ...(isSSR && {
-        ssr: true,
-        outDir: 'dist/server'
       })
     },
     ssr: {
-      // ✅ SSR dev: React JSX externo (evita module error)
-      noExternal: isBuild 
-        ? ['react', 'react-dom', 'react-router-dom']
-        : []
-    },
-    optimizeDeps: {
-      include: ['react', 'react-dom']
+      // ✅ Solo en SSR build, excluye React Router dev chunks
+      noExternal: isSSRBuild 
+        ? ['react', 'react-dom']
+        : undefined
     }
   }
 })
