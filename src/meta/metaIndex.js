@@ -22,7 +22,7 @@ export const metaIndex = {
   },
 
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Daliah Banda | Metalcore · Pop Emo Punk",
     description: "Banda de metalcore y pop emo punk desde Bogotá. Letras intensas, sonido potente y espíritu alternativo.",
     image: "https://daliahbanda.com/DaliahLogoWhite.png",
@@ -69,9 +69,4 @@ export const metaIndex = {
     ],
     "email": "daliahbanda@gmail.com"
   }
-}
-
-
-function metaIndexHydratate(){
-
 }
