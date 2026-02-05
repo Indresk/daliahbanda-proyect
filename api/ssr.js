@@ -10,14 +10,8 @@ const base = process.env.BASE || '/'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-
-// Cached production assets
-// const templateHtml = isProduction
-//   ? await fs.readFile(join(__dirname, '../dist/client/index.html'), 'utf-8')
-//   : ''
-
 // Create http server → EXPORTAR app
-export const app = express()  // ← AGREGAR 'export'
+export const app = express()
 
 app.set('trust proxy', 1)
 // Add Vite or respective production middlewares
@@ -52,19 +46,14 @@ app.use(/.*$/, async (req, res) => {
     } else {
       const templatePath = join(__dirname, '../dist/client/index.html')
       template = await fs.readFile(templatePath, 'utf-8')
-      //template = templateHtml
       render = (await import('../dist/server/entry-server.js')).render
     }
 
-    const rendered = await render(url,req)
+    const rendered = await render(req)
 
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
-      .replace(
-        `<!--app-initial-props-->`, 
-        `<script>window.__INITIAL_DATA__=${JSON.stringify(rendered.hydrationData || {})}</script>`
-      )
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {

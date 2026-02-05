@@ -54,15 +54,11 @@ app.use(/.*$/, async (req, res) => {  // ← CAMBIO AQUÍ: '*' en vez de '*all'
       render = (await import('./dist/server/entry-server.js')).render
     }
 
-    const rendered = await render(url, req)
+    const rendered = await render(req)
 
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
-      .replace(
-        `<!--app-initial-props-->`, 
-        `<script>window.__INITIAL_DATA__=${JSON.stringify(rendered.hydrationData || {})}</script>`
-      )
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {
