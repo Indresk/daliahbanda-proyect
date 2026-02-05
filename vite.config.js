@@ -12,13 +12,17 @@ export default defineConfig(({ command, mode }) => {
       react()
     ],
     build: {
-      // ✅ Esbuild por default (Vercel lo tiene)
-      minify: 'esbuild',
+      minify: 'esbuild',  // ✅ Vercel compatible
       target: 'es2022',
+      sourcemap: false,   // ✅ Production
       ...(isSSRBuild ? {
         ssr: 'src/entry-server.jsx',
         outDir: 'dist/server',
         rollupOptions: {
+          external: [
+            'react-router',
+            'react-router-dom'
+          ],
           output: {
             entryFileNames: 'entry-server.js'
           }
