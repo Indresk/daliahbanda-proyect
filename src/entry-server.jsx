@@ -19,7 +19,7 @@ export async function render(req){
 
   return { 
     html,
-    head: '',
+    head: context.head || '',
     hydrationData: context
   }
 }

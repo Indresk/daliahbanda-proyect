@@ -1,4 +1,5 @@
 import ContenidoTemporal from "./components/ContenidoTemporal"
+import metaIndex from "./meta/metaIndex"
 import App from "./App"
 
 export const routes = [
@@ -10,6 +11,7 @@ export const routes = [
       {
         index: true,
         loader: () => ({}),
+        head:metaIndex,
         Component: ContenidoTemporal,
       },
       {
