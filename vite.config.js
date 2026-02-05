@@ -12,8 +12,9 @@ export default defineConfig(({ command, mode }) => {
       react()
     ],
     build: {
-      target: 'es2022',  // ← Production target
-      minify: 'terser',  // ← Minifica development chunks
+      // ✅ Esbuild por default (Vercel lo tiene)
+      minify: 'esbuild',
+      target: 'es2022',
       ...(isSSRBuild ? {
         ssr: 'src/entry-server.jsx',
         outDir: 'dist/server',
@@ -27,10 +28,7 @@ export default defineConfig(({ command, mode }) => {
       })
     },
     ssr: {
-      // ✅ Solo en SSR build, excluye React Router dev chunks
-      noExternal: isSSRBuild 
-        ? ['react', 'react-dom']
-        : undefined
+      noExternal: ['react', 'react-dom']
     }
   }
 })
