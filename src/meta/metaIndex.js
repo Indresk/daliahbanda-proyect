@@ -1,4 +1,4 @@
-const metaIndex = {
+export const metaIndex = {
   title: "Daliah Banda | Metalcore · Pop Emo Punk desde Bogotá",
   description: "Daliah es una banda de metalcore y pop emo punk formada en Bogotá. Su sonido mezcla punk rock, pop-punk y metal progresivo con letras sociales, emocionales y políticas.",
   keywords: "Daliah Banda, Daliah Bogotá, banda metalcore Colombia, pop emo punk Colombia, rock alternativo Bogotá, metal progresivo colombiano, banda emo Colombia, Daliah música, Daliah rock",
@@ -75,5 +75,3 @@ const metaIndex = {
 function metaIndexHydratate(){
 
 }
-
-export default {metaIndex,metaIndexHydratate}
