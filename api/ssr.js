@@ -19,6 +19,7 @@ const __dirname = dirname(__filename)
 // Create http server → EXPORTAR app
 export const app = express()  // ← AGREGAR 'export'
 
+app.set('trust proxy', 1)
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */
 let vite
@@ -72,3 +73,5 @@ app.use(/.*$/, async (req, res) => {
     res.status(500).end(e.stack)
   }
 })
+
+export default app 
