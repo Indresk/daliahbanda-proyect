@@ -1,6 +1,9 @@
+import DaliahClicker from "./DaliahClicker/DaliahClicker"
 export default function ContenidoTemporal(){
+  
     return(
         <main>
+         <div>{DaliahClicker()}</div>
         <section id="hero">
           <h1 className='font-bold'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
           <picture>
