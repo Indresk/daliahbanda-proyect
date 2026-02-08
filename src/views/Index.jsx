@@ -1,5 +1,5 @@
 export default function Index(){
-  
+
     return(
         <main>
         <section id="hero">

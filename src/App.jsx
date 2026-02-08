@@ -6,14 +6,16 @@ import { Outlet } from "react-router-dom"
 function App() {
 
   return (
-      <div id="global">
-        <Header/>
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
+      <>
+        <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
+          <Header/>
+          <main>
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
         <DaliahClicker/>
-      </div>
+      </>
   )
 }
 
