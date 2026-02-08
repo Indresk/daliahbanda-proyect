@@ -1,6 +1,4 @@
-import ContenidoTemporal from "./components/ContenidoTemporal"
-
-
+import Index from "./views/Index"
 import App from "./App"
 
 export const routes = [
@@ -12,7 +10,7 @@ export const routes = [
       {
         index: true,
         loader: () => ({}),
-        Component: ContenidoTemporal,
+        Component: Index,
       },
       {
         path: "test",

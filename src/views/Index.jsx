@@ -1,4 +1,4 @@
-export default function ContenidoTemporal(){
+export default function Index(){
   
     return(
         <main>

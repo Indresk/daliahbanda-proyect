@@ -39,7 +39,7 @@ if (!isProduction) {
 }
 
 // Serve HTML
-app.use(/.*$/, async (req, res) => {  // ← CAMBIO AQUÍ: '*' en vez de '*all'
+app.use(/.*$/, async (req, res) => { 
   try {
     const url = req.originalUrl.replace(base, '')
 
