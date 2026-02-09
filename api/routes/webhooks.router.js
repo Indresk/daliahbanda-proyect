@@ -1,6 +1,6 @@
 import express from 'express'
-import getStatus from '../webhooks/kick/getSubscription'
-import { startFlow } from '../webhooks/kick/startFlow'
+import {getStatus} from '../webhooks/kick/getSubscription.js'
+import { startFlow } from '../webhooks/kick/startFlow.js'
 
 const WebhookRouter = express.Router()
 

@@ -14,7 +14,7 @@ const __dirname = dirname(__filename)
 // Create http server → EXPORTAR app
 export const app = express()
 
-// app.use('/webhook', WebhookRouter)
+app.use('/webhook', WebhookRouter)
 
 app.set('trust proxy', 1)
 // Add Vite or respective production middlewares
