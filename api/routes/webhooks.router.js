@@ -1,16 +1,18 @@
 import express from 'express'
 import {getStatus} from '../webhooks/kick/getSubscription.js'
-import { getKickAuthUrl, exchangeCodeForToken} from '../webhooks/kick/kick.oauth.js'
+import { getKickAuthUrl, exchangeCodeForToken, generatePKCEPair} from '../webhooks/kick/kick.oauth.js'
 import { getValidKickToken } from '../webhooks/kick/verifyToken.js'
 import { startFlow } from '../webhooks/kick/startFlow.js'
+import { savePKCE, getPKCE, clearPKCE } from '../webhooks/kick/pkceStorage.js';
 
 const WebhookRouter = express.Router()
 
 //kick
 
 WebhookRouter.get('/kick/login', (req, res) => {
-  const url = getKickAuthUrl()
-  res.redirect(url)
+    const result = getKickAuthUrl();
+    savePKCE(result.state, result.code_verifier);
+    res.redirect(result.url);
 })
 
 WebhookRouter.get('/kick/oauth/callback', async (req, res) => {
@@ -21,11 +23,13 @@ WebhookRouter.get('/kick/oauth/callback', async (req, res) => {
 
     console.log('OAuth state recibido:', state);
 
-    const codeVerifier = req.query.code_verifier || sessionStorage.getItem(`pkce_${state}`);  // ← AGREGADO: Recupera verifier (implementa storage)
+    const codeVerifier = getPKCE(state);
     if (!codeVerifier) throw new Error('Missing code_verifier - PKCE failed');
 
-    const tokenData = await exchangeCodeForToken(code, codeVerifier);  // ← PASADO verifier
-    process.env.KICK_REFRESH_TOKEN = tokenData.refresh_token;  // Guarda refresh
+    const tokenData = await exchangeCodeForToken(code, codeVerifier);
+    process.env.KICK_REFRESH_TOKEN = tokenData.refresh_token;
+
+    clearPKCE(state);
 
     const accessToken = tokenData.access_token;
     console.log('OAuth completado. Access Token:', accessToken);

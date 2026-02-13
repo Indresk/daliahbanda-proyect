@@ -21,8 +21,9 @@ export function getKickAuthUrl(state = crypto.randomUUID()) {
     code_challenge_method: 'S256',        
     state: state                          
   });
-  console.log(`${KICK_AUTH_URL}?${params.toString()}`);
-  return `${KICK_AUTH_URL}?${params.toString()}`;
+  const url = `${KICK_AUTH_URL}?${params.toString()}`
+  console.log(url);
+  return { url, state, code_verifier: pkce.code_verifier };
 }
 
 export async function exchangeCodeForToken(code, codeVerifier) { 
