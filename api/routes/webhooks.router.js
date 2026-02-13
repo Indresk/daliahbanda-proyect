@@ -15,29 +15,27 @@ WebhookRouter.get('/kick/login', (req, res) => {
 
 WebhookRouter.get('/kick/oauth/callback', async (req, res) => {
   try {
-    const { code } = req.query
+    const { code, state, error } = req.query;
+    if (error) throw new Error(`OAuth error: ${error}`);
+    if (!code || !state) return res.status(400).send('Missing code or state');
 
-    if (!code) {
-      return res.status(400).send('Missing code')
-    }
+    console.log('OAuth state recibido:', state);
 
-    const tokenData = await exchangeCodeForToken(code)
+    const codeVerifier = req.query.code_verifier || sessionStorage.getItem(`pkce_${state}`);  // ← AGREGADO: Recupera verifier (implementa storage)
+    if (!codeVerifier) throw new Error('Missing code_verifier - PKCE failed');
 
-    process.env.KICK_REFRESH_TOKEN = tokenData.refresh_token
+    const tokenData = await exchangeCodeForToken(code, codeVerifier);  // ← PASADO verifier
+    process.env.KICKREFRESHTOKEN = tokenData.refresh_token;  // Guarda refresh
 
-    const accessToken = tokenData.access_token
-
-    console.log('✅ OAuth completado')
-    console.log('Access Token:', accessToken)
-
-    await startFlow(accessToken)
-
-    res.send('OAuth completado y suscripción creada')
+    const accessToken = tokenData.access_token;
+    console.log('OAuth completado. Access Token:', accessToken);
+    await startFlow(accessToken);
+    res.send('OAuth completado y suscripción creada');
   } catch (error) {
-    console.error(error)
-    res.status(500).send('OAuth error')
+    console.error(error);
+    res.status(500).send(`OAuth error: ${error.message}`);
   }
-})
+});
 
 
 WebhookRouter.post('/kick',express.json(), async (req, res) => {
