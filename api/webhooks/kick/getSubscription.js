@@ -1,43 +1,41 @@
-
-import crypto from 'node:crypto'
-
 let liveStatus = false
 
-export function getStatus(req){
-    const signature = req.headers['kick-event-signature']
-    const messageId = req.headers['kick-event-message-id']
-    const timestamp = req.headers['kick-event-message-timestamp']
-    const eventType = req.headers['kick-event-type']
+export function getStatus(payload){
+    if (!payload) return
 
-    const rawBody = req.body.toString()
+    const eventType = payload.event || payload.type
 
-    const signedPayload = `${messageId}.${timestamp}.${rawBody}`
+    if (eventType !== 'livestream.status.updated') return
 
-    const verify = crypto.createVerify('SHA256')
-    verify.update(signedPayload)
-    verify.end()
+    const { is_live } = payload.data || {}
 
-    const PublicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq/+l1WnlRrGSolDMA+A86rAhMbQGmQ2SapVcGM3zq8ANXjnhDWocMqfWcTd95btDydITa10kDvHzw9WQOqp2MZI7ZyrfzJuz5nhTPCiJwTwnEtWft7nV14BYRDHvlfqPUaZ+1KR4OCaO/wWIk/rQL/TjY0M70gse8rlBkbo2a8rKhu69RQTRsoaf4DVhDPEeSeI5jVrRDGAMGL3cGuyY6CLKGdjVEM78g3JfYOvDU/RvfqD7L89TZ3iN94jrmWdGz34JNlEI5hqK8dd7C5EFBEbZ5jgB8s8ReQV8H+MkuffjdAj3ajDDX3DOJMIut1lBrUVD1AaSrGCKHooWoL2etwIDAQAB'
+    if (typeof is_live !== 'boolean') return
 
-    const isValid = verify.verify(PublicKey,signature,'base64')
+    liveStatus = is_live
 
-    if (!isValid) {
-        throw new Error('No es valida la key');
+    console.log(
+        is_live
+        ? '🟢 Stream inició'
+        : '🔴 Stream terminó'
+    )
+}
+
+export async function getSubscriptions(accessToken) {
+  const response = await fetch(
+    'https://api.kick.com/public/v1/events/subscriptions',
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
     }
+  )
 
-    const payload = JSON.parse(rawBody)
+  if (!response.ok) {
+    const error = await response.text()
+    throw new Error(`Get subscription error: ${error}`)
+  }
 
-        if (eventType === 'livestream.status.updated') {
-        const { broadcaster_user_id, is_live } = payload.data
-
-        if (is_live) {
-            liveStatus = true
-            console.log(`🟢 ${broadcaster_user_id} inició live`)
-        } else {
-            liveStatus = false
-            console.log(`🔴 ${broadcaster_user_id} terminó live`)
-        }
-    }
+  return response.json()
 }
 
 export function getSubscription(){
