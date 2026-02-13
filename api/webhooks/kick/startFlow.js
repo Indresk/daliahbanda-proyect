@@ -1,22 +1,21 @@
 export async function startFlow(accessToken) {
-  const webhookUrl = 'https://daliahbanda.com/webhook/kick';
   
   const response = await fetch('https://api.kick.com/public/v1/events/subscriptions', {
     method: 'POST',
-    headers: {
+     headers: {
       'Authorization': `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
+      'Accept': '*/*'
     },
     body: JSON.stringify({
+      broadcaster_user_id: 87378324,
       events: [
         {
-          name: 'chat.message.sent',
+          name: 'livestream.status.updated',
           version: 1
         }
       ],
-      method: 'webhook',
-      webhook_url: webhookUrl,
-      broadcaster_user_id: '87378324'
+      method: 'webhook'
     }),
   });
 

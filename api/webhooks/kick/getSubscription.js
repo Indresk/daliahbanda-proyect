@@ -1,3 +1,5 @@
+let liveStatus = false;
+
 export function getStatus(payload) {
   if (!payload) return;
   
@@ -8,10 +10,6 @@ export function getStatus(payload) {
     const isLive = payload.data?.is_live ?? false;
     liveStatus = isLive;
     console.log(isLive ? '🔴 Stream INICIADO' : '⏹️ Stream TERMINADO');
-  }
-  
-  if (eventType === 'chat.message.sent') {
-    console.log('💬 Mensaje:', payload.data?.message);
   }
 }
 
