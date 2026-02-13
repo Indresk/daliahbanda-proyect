@@ -13,6 +13,7 @@ export function getKickAuthUrl() {
     redirect_uri: KICK_REDIRECT_URI,
     scope: 'events:subscribe livestream:read',
   })
+  console.log(`${KICK_AUTH_URL}?${params.toString()}`)
 
   return `${KICK_AUTH_URL}?${params.toString()}`
 }
