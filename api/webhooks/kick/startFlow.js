@@ -10,7 +10,7 @@ export async function startFlow(accessToken) {
     body: JSON.stringify({
       events: [
         {
-          name: 'livestream.status.updated',
+          name: 'chat.message.sent',
           version: 1
         }
       ],

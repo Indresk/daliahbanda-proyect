@@ -1,23 +1,18 @@
-let liveStatus = false
-
-export function getStatus(payload){
-    if (!payload) return
-
-    const eventType = payload.event || payload.type
-
-    if (eventType !== 'livestream.status.updated') return
-
-    const { is_live } = payload.data || {}
-
-    if (typeof is_live !== 'boolean') return
-
-    liveStatus = is_live
-
-    console.log(
-        is_live
-        ? '🟢 Stream inició'
-        : '🔴 Stream terminó'
-    )
+export function getStatus(payload) {
+  if (!payload) return;
+  
+  const eventType = `${payload.event}.${payload.type}`;
+  console.log('Evento Kick:', eventType, payload);
+  
+  if (eventType === 'livestream.status.updated') {
+    const isLive = payload.data?.is_live ?? false;
+    liveStatus = isLive;
+    console.log(isLive ? '🔴 Stream INICIADO' : '⏹️ Stream TERMINADO');
+  }
+  
+  if (eventType === 'chat.message.sent') {
+    console.log('💬 Mensaje:', payload.data?.message);
+  }
 }
 
 export async function getSubscriptions(accessToken) {
