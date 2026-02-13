@@ -25,7 +25,7 @@ WebhookRouter.get('/kick/oauth/callback', async (req, res) => {
     if (!codeVerifier) throw new Error('Missing code_verifier - PKCE failed');
 
     const tokenData = await exchangeCodeForToken(code, codeVerifier);  // ← PASADO verifier
-    process.env.KICKREFRESHTOKEN = tokenData.refresh_token;  // Guarda refresh
+    process.env.KICK_REFRESH_TOKEN = tokenData.refresh_token;  // Guarda refresh
 
     const accessToken = tokenData.access_token;
     console.log('OAuth completado. Access Token:', accessToken);

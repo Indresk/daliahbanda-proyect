@@ -1,6 +1,6 @@
-import crypto from 'crypto'; 
+import crypto from 'crypto';  
 
-const { KICKCLIENTID, KICKCLIENTSECRET, KICKREDIRECTURI, KICKTOKENURL, KICKAUTHURL } = process.env;
+const { KICK_CLIENT_ID, KICK_CLIENT_SECRET, KICK_REDIRECT_URI, KICK_TOKEN_URL, KICK_AUTH_URL } = process.env;
 
 export function generatePKCEPair() {
   const verifier = crypto.randomBytes(32).toString('base64url');
@@ -14,27 +14,27 @@ export function getKickAuthUrl(state = crypto.randomUUID()) {
   const pkce = generatePKCEPair(); 
   const params = new URLSearchParams({
     response_type: 'code',
-    client_id: KICKCLIENTID,
-    redirect_uri: KICKREDIRECTURI,
+    client_id: KICK_CLIENT_ID,
+    redirect_uri: KICK_REDIRECT_URI,
     scope: 'events:subscribe livestream:read',
     code_challenge: pkce.code_challenge,  
     code_challenge_method: 'S256',        
     state: state                          
   });
-  console.log(`${KICKAUTHURL}?${params.toString()}`);
-  return `${KICKAUTHURL}?${params.toString()}`;
+  console.log(`${KICK_AUTH_URL}?${params.toString()}`);
+  return `${KICK_AUTH_URL}?${params.toString()}`;
 }
 
 export async function exchangeCodeForToken(code, codeVerifier) { 
-  const response = await fetch(KICKTOKENURL, {
+  const response = await fetch(KICK_TOKEN_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
       grant_type: 'authorization_code',
       code,
-      client_id: KICKCLIENTID,
-      client_secret: KICKCLIENTSECRET,
-      redirect_uri: KICKREDIRECTURI,
+      client_id: KICK_CLIENT_ID,
+      client_secret: KICK_CLIENT_SECRET,
+      redirect_uri: KICK_REDIRECT_URI,
       code_verifier: codeVerifier
     }),
   });
@@ -46,14 +46,14 @@ export async function exchangeCodeForToken(code, codeVerifier) {
 }
 
 export async function refreshKickToken(refreshToken) {
-  const response = await fetch(KICKTOKENURL, {
+  const response = await fetch(KICK_TOKEN_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
       refresh_token: refreshToken,
-      client_id: KICKCLIENTID,
-      client_secret: KICKCLIENTSECRET,
+      client_id: KICK_CLIENT_ID,
+      client_secret: KICK_CLIENT_SECRET,
     }),
   });
   if (!response.ok) {
