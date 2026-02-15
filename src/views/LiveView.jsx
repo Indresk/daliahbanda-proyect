@@ -17,11 +17,11 @@ export default function LiveView(){
 
     return(
         <>
-            <header>
+            <section>
                 <h1>Daliah Banda en vivo | Ensayo oficial vía Kick desde Bogotá</h1>
                 <p>Transmisión en directo de los ensayos oficiales de Daliah Banda, banda de metalcore y pop emo punk formada en Bogotá, Colombia. 
                 Sigue el proceso creativo, la ejecución instrumental y la energía real de la agrupación en tiempo real.</p>
-            </header>
+            </section>
             <section aria-labelledby="stream-player">
                 <h2 id="stream-player">Ensayo en vivo</h2>
                 <div className="video-container">
