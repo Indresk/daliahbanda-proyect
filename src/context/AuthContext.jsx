@@ -6,10 +6,12 @@ const BackURL = import.meta.env.VITE_BACK_URL
 
 function AuthProvider({children}){
     const [token, setToken] = useState(null)
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [isHydrated, setIsHydrated] = useState(false);
 
     useEffect(() => {
         refreshToken();
+        setIsHydrated(true);
     }, []);
 
     async function logIn(credentials){
@@ -65,7 +67,7 @@ function AuthProvider({children}){
     }, [token]);    
 
     return(
-        <AuthContext.Provider value={{token:token,logIn:logIn,logOut:logOut,loading:loading,apiFetch:apiFetch}}>
+        <AuthContext.Provider value={{token:token,logIn:logIn,logOut:logOut,loading:loading,apiFetch:apiFetch,isHydrated:isHydrated}}>
             {children}
         </AuthContext.Provider>
     )

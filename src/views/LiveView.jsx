@@ -24,7 +24,7 @@ export default function LiveView(){
             </header>
             <section aria-labelledby="stream-player">
                 <h2 id="stream-player">Ensayo en vivo</h2>
-                <div class="video-container">
+                <div className="video-container">
                     {liveStatus?
                         <iframe className="w-full aspect-video" src="https://player.kick.com/daliahbanda" frameborder="0" allowfullscreen="true"></iframe>:
                         <div className="aspect-video bg-gray-500 flex justify-center items-center w-full">

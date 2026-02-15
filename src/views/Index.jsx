@@ -23,7 +23,7 @@ export default function Index(){
           </picture>
         </section>
 
-        <section aria-labelledby="live-card" class="live-card">
+        <section aria-labelledby="live-card" className="live-card">
           <article>
             <header>
               <h2 id="live-card-title">Daliah Banda en vivo</h2>
@@ -32,9 +32,9 @@ export default function Index(){
             <figure>
               <img src="/DaliahLogoWhite.png" alt="Daliah Banda transmitiendo ensayo en vivo de metalcore desde Bogotá" loading="lazy"/>
             </figure>
-            <div class="live-card-content">
+            <div className="live-card-content">
               <p>Accede al streaming oficial vía <a className="underline text-pink-800" href="https://kick.com/daliahbanda" target="_blank" rel="noopener noreferrer">Kick</a> y conoce el proceso creativo, los arreglos en tiempo real y la energía de la banda durante sus sesiones de ensayo.</p>
-              <Link to="/live" title="Ver a Daliah Banda en vivo" class="live-card-button underline text-pink-800">Ver ensayo en vivo</Link>
+              <Link to="/live" title="Ver a Daliah Banda en vivo" className="live-card-button underline text-pink-800">Ver ensayo en vivo</Link>
             </div>
           </article>
         </section>
