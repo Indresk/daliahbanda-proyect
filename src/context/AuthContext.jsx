@@ -2,7 +2,7 @@ import { createContext ,useState, useEffect,useMemo } from "react";
 import { createApiClient } from "../services/apiClient";
 
 export const AuthContext = createContext();
-const BackURL = process.env.BACK_URL
+const BackURL = import.meta.env.VITE_BACK_URL
 
 function AuthProvider({children}){
     const [token, setToken] = useState(null)
