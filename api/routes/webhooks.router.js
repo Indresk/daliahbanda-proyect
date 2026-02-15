@@ -44,7 +44,7 @@ WebhookRouter.get('/kick/oauth/callback', async (req, res) => {
 WebhookRouter.post('/kick',express.json(), async (req, res) => {
   try {
     console.log('📩 Webhook recibido:', req.body)
-    getStatus(req.body)
+    await getStatus(req.body)
     res.sendStatus(200)
   } catch (error) {
     console.error(error)

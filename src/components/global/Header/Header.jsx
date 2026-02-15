@@ -10,9 +10,13 @@ export default function Header(){
 
     const location = useLocation()
 
-    useEffect(()=>{ 
-        setLiveStatus(getLiveStatus())
-    },[location.pathname])    
+    useEffect(() => {
+        const fetchStatus = async () => {
+            const tStatus = await getLiveStatus();
+            setLiveStatus(tStatus); 
+        };
+        fetchStatus();
+    }, [location.pathname]); 
   
     return (
         <header className='bg-black'>
