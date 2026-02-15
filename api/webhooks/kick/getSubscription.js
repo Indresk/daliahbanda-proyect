@@ -1,4 +1,4 @@
-import {fs} from 'fs/promises'
+// import {fs} from 'fs/promises'
 
 const STATUS_FILE = './liveStatus.json';
 
@@ -6,7 +6,7 @@ let liveStatusCache = false;
 
 async function readLiveStatus() {
   try {
-    const data = await fs.readFile(STATUS_FILE, 'utf8');
+    // const data = await fs.readFile(STATUS_FILE, 'utf8');
     const json = JSON.parse(data);
     return json.status ?? false;
   } catch (error) {
@@ -18,7 +18,7 @@ async function readLiveStatus() {
 async function writeLiveStatus(isLive) {
   try {
     const statusData = { status: isLive };
-    await fs.writeFile(STATUS_FILE, JSON.stringify(statusData, null, 2), 'utf8');
+    // await fs.writeFile(STATUS_FILE, JSON.stringify(statusData, null, 2), 'utf8');
     console.log(isLive ? '💾 Status guardado: LIVE' : '💾 Status guardado: OFFLINE');
     liveStatusCache = isLive;
   } catch (error) {
