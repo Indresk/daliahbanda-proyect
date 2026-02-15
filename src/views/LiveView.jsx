@@ -16,7 +16,7 @@ export default function LiveView(){
     const {liveStatus} = useContext(LiveContext)
 
     return(
-        <main>
+        <>
             <section>
                 <h1>Daliah Banda en vivo | Ensayo oficial vía Kick desde Bogotá</h1>
                 <p>Transmisión en directo de los ensayos oficiales de Daliah Banda, banda de metalcore y pop emo punk formada en Bogotá, Colombia. 
@@ -75,6 +75,6 @@ export default function LiveView(){
                 y conectando con la banda en sus redes sociales oficiales. 
                 El respaldo de la audiencia fortalece la escena metalcore y alternativa en Colombia.</p>
             </section>
-        </main>
+        </>
     )
 }
