@@ -3,6 +3,7 @@ import LiveView from "./views/LiveView"
 import LogInView from "./views/LogInView"
 import AlbumsView from "./views/AlbumsView"
 import ProtectedRoute from "./components/Login/ProtectedRoute"
+import ErrorView from "./views/ErrorView"
 import App from "./App"
 
 export const routes = [
@@ -10,6 +11,7 @@ export const routes = [
     id: "root",
     loader: () => ({}),
     Component: App,
+    ErrorBoundary:ErrorView,
     children: [
       {
         index: true,
