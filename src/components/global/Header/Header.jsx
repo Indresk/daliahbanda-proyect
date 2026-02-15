@@ -1,22 +1,23 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useEffect,useContext } from 'react'
 
-import LiveBanner from '../LiveBanner/LiveBanner'
-import {getSubscription} from '../../../../api/webhooks/kick/getSubscription.js'
-import { useEffect,useState } from 'react'
+import LiveBanner from './LiveBanner'
+import { LiveContext } from '../../../context/LiveContext.jsx'
+import {getLiveStatus} from '../../../../api/webhooks/kick/getSubscription.js'
 
 export default function Header(){
+    const {liveStatus,setLiveStatus} = useContext(LiveContext)
+
     const location = useLocation()
 
-    const [verification,setVerification] = useState(false)
-
     useEffect(()=>{ 
-        setVerification(getSubscription())
+        setLiveStatus(getLiveStatus())
     },[location.pathname])    
 
   
     return (
         <header className='bg-black'>
-            {verification&&<LiveBanner/>}
+            {liveStatus&&<LiveBanner/>}
             <nav>
                 <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
                 <Link to="/test" className={location.pathname === '/test' ? 'active' : ''}>Test</Link>

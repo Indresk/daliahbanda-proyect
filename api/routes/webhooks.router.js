@@ -1,6 +1,6 @@
 import express from 'express'
 import {getStatus} from '../webhooks/kick/getSubscription.js'
-import { getKickAuthUrl, exchangeCodeForToken, generatePKCEPair} from '../webhooks/kick/kick.oauth.js'
+import { getKickAuthUrl, exchangeCodeForToken} from '../webhooks/kick/kick.oauth.js'
 import { startFlow } from '../webhooks/kick/startFlow.js'
 import { savePKCE, getPKCE, clearPKCE } from '../webhooks/kick/pkceStorage.js';
 

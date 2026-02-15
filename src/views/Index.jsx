@@ -1,3 +1,5 @@
+import { Link } from "react-router"
+
 export default function Index(){
 
     return(
@@ -20,6 +22,23 @@ export default function Index(){
             <img src="/DaliahLogoWhite.png" alt="Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá" />
           </picture>
         </section>
+
+        <section aria-labelledby="live-card" class="live-card">
+          <article>
+            <header>
+              <h2 id="live-card-title">Daliah Banda en vivo</h2>
+              <p>Sigue nuestros ensayos oficiales de metalcore y pop emo punk transmitidos en directo desde Bogotá.</p>
+            </header>
+            <figure>
+              <img src="/DaliahLogoWhite.png" alt="Daliah Banda transmitiendo ensayo en vivo de metalcore desde Bogotá" loading="lazy"/>
+            </figure>
+            <div class="live-card-content">
+              <p>Accede al streaming oficial vía <a className="underline text-pink-800" href="https://kick.com/daliahbanda" target="_blank" rel="noopener noreferrer">Kick</a> y conoce el proceso creativo, los arreglos en tiempo real y la energía de la banda durante sus sesiones de ensayo.</p>
+              <Link to="/live" title="Ver a Daliah Banda en vivo" class="live-card-button underline text-pink-800">Ver ensayo en vivo</Link>
+            </div>
+          </article>
+        </section>
+
         <section>
           <h2>Estilo musical e influencias</h2>
           <h3>Metalcore, Pop Emo Punk y Rock Alternativo</h3>

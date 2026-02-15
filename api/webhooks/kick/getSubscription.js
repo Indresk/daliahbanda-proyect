@@ -13,24 +13,24 @@ export function getStatus(payload) {
   }
 }
 
-export async function getSubscriptions(accessToken) {
-  const response = await fetch(
-    'https://api.kick.com/public/v1/events/subscriptions',
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    }
-  )
+// export async function getSubscriptions(accessToken) {
+//   const response = await fetch(
+//     'https://api.kick.com/public/v1/events/subscriptions',
+//     {
+//       headers: {
+//         Authorization: `Bearer ${accessToken}`,
+//       },
+//     }
+//   )
 
-  if (!response.ok) {
-    const error = await response.text()
-    throw new Error(`Get subscription error: ${error}`)
-  }
+//   if (!response.ok) {
+//     const error = await response.text()
+//     throw new Error(`Get subscription error: ${error}`)
+//   }
 
-  return response.json()
-}
+//   return response.json()
+// }
 
-export function getSubscription(){
+export function getLiveStatus(){
     return liveStatus
 }
