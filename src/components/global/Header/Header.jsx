@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useEffect,useContext } from 'react'
 
 import LiveBanner from './LiveBanner'
@@ -13,15 +13,16 @@ export default function Header(){
     useEffect(()=>{ 
         setLiveStatus(getLiveStatus())
     },[location.pathname])    
-
   
     return (
         <header className='bg-black'>
             {liveStatus&&<LiveBanner/>}
-            <nav>
-                <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
-                <Link to="/test" className={location.pathname === '/test' ? 'active' : ''}>Test</Link>
-            </nav>
+            <section className='p-4'>
+                <nav className='flex gap-4'>
+                    <NavLink to="/" className={({isActive})=>isActive?"text-pink-500":"text-white"}>Home</NavLink>
+                    <NavLink to="/albums" className={({isActive})=>isActive?"text-pink-500":"text-white"}>Albums</NavLink>
+                </nav>
+            </section>
         </header>
     )
 }
