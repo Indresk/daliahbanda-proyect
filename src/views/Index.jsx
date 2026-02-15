@@ -3,7 +3,7 @@ import { Link } from "react-router"
 export default function Index(){
 
     return(
-        <>
+      <main>
         <section id="hero">
           <h1 className='font-bold'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
           <picture>
@@ -126,6 +126,6 @@ export default function Index(){
             <img src="/DaliahLogoWhiteIcon.ico" alt="Logos de Instagram y Facebook de Daliah Banda" />
           </picture>
         </aside>
-      </>
+      </main>
     )
 }
