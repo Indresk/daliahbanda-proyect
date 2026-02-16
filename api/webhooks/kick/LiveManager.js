@@ -13,6 +13,5 @@ class LiveManager{
 }
 
 const instance = new LiveManager();
-Object.freeze(instance);
 
 export default instance;
