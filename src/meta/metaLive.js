@@ -1,7 +1,7 @@
 import { getLiveStatus } from "../../api/webhooks/kick/getSubscription"
 import { getStreamingStart,getStreamingEnd } from "../../api/util/dates"
 
-let liveStatus = false
+let liveStatus = getLiveStatus()
 let streamingStart = getStreamingStart()
 let streamingEnd = getStreamingEnd()
 

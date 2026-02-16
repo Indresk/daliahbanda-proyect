@@ -11,11 +11,7 @@ export default function Header(){
     const location = useLocation()
 
     useEffect(() => {
-        const fetchStatus = async () => {
-            const tStatus = await getLiveStatus();
-            setLiveStatus(tStatus); 
-        };
-        fetchStatus();
+        setLiveStatus(getLiveStatus()); 
     }, [location.pathname]); 
   
     return (
