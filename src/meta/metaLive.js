@@ -1,6 +1,5 @@
 import { getStreamingStart,getStreamingEnd } from "../../api/util/dates"
 
-let liveStatus = localStorage.getItem('liveStatus') || false;
 let streamingStart = getStreamingStart()
 let streamingEnd = getStreamingEnd()
 
@@ -62,9 +61,7 @@ export const metaLive = {
     startDate: streamingStart,
     endDate:streamingEnd,
     isLiveBroadcast: true,
-    "eventStatus": liveStatus 
-        ? "https://schema.org/EventOngoing" 
-        : "https://schema.org/EventScheduled",
+    "eventStatus": "https://schema.org/EventScheduled",
 
     location: {
       "@type": "City",
@@ -103,7 +100,7 @@ export const metaLive = {
         "startDate": streamingStart,
         "endDate": streamingEnd,
         "isLiveBroadcast": true,
-        "eventStatus": liveStatus? "https://schema.org/EventOngoing": "https://schema.org/EventScheduled",
+        "eventStatus": "https://schema.org/EventScheduled",
         "location": {
           "@type": "City",
           "name": "Bogotá"
