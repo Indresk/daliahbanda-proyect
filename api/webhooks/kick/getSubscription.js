@@ -1,10 +1,4 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const FILE = `${__dirname}/liveStatus.json`;
 
 export function getStatus(payload) {
   if (!payload) return;
@@ -14,14 +8,14 @@ export function getStatus(payload) {
   
   if (eventType === 'livestream.status.updated') {
     const isLive = payload.data?.is_live ?? false;
-    writeFileSync(FILE, JSON.stringify({ status: isLive }));
+    writeFileSync('./liveStatus.json', JSON.stringify({ status: isLive }));
     console.log(isLive ? '🔴 Stream INICIADO' : '⏹️ Stream TERMINADO');
   }
 }
 
 export function getLiveStatus() {
   try {
-    const data = readFileSync(FILE, 'utf8');
+    const data = readFileSync('./liveStatus.json', 'utf8');
     console.log(data)
     return JSON.parse(data).status ?? false;
   } catch {
