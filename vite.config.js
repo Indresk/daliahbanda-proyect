@@ -34,7 +34,7 @@ export default defineConfig(({ command, mode }) => {
     },
     ssr: {
       //  SSR dev: React JSX externo (evita module error)
-      noExternal: ['fs','./api/webhooks/kick/getSubscription.js']
+      noExternal: []
       // noExternal: isBuild 
       //   ? ['react', 'react-dom']
       //   : []

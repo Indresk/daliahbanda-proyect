@@ -1,10 +1,13 @@
-import { createContext, useState } from "react";
-import {getLiveStatus} from '../../api/webhooks/kick/getSubscription.js'
+import { createContext, useEffect, useState } from "react";
 
 export const LiveContext = createContext();
 
 function LiveProvider({children}){
     const [liveStatus, setLiveStatus] = useState(false)
+
+    useEffect(()=>{
+        localStorage.setItem('liveStatus',liveStatus)
+    },[liveStatus])
 
     return(
         <LiveContext.Provider value={{liveStatus:liveStatus,setLiveStatus:setLiveStatus}}>

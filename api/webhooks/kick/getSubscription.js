@@ -1,6 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
-
-export function getStatus(payload) {
+export async function getStatus(payload) {
   if (!payload) return;
   
   const eventType = `${payload.event}.${payload.type}`;
@@ -8,19 +6,24 @@ export function getStatus(payload) {
   
   if (eventType === 'livestream.status.updated') {
     const isLive = payload.data?.is_live ?? false;
-    writeFileSync('./liveStatus.json', JSON.stringify({ status: isLive }));
+    await writeLiveStatus(fsPromises, isLive);
     console.log(isLive ? '🔴 Stream INICIADO' : '⏹️ Stream TERMINADO');
   }
 }
 
-export function getLiveStatus() {
+export async function getLiveStatus() {
+  const { promises: fsPromises } = await import('node:fs');
   try {
-    const data = readFileSync('./liveStatus.json', 'utf8');
-    console.log(data)
+    const data = await fsPromises.readFile('./liveStatus.json', 'utf8');
     return JSON.parse(data).status ?? false;
   } catch {
     return false;
   }
+}
+
+async function writeLiveStatus(fsPromises, isLive) {
+  const statusData = { status: isLive };
+  await fsPromises.writeFile('./liveStatus.json', JSON.stringify(statusData, null, 2), 'utf8');
 }
 
 
