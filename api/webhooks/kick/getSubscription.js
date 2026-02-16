@@ -1,4 +1,4 @@
-import LiveStatus from "./LiveManager";
+import LiveStatus from "./LiveManager.js";
 
 export function getStatus(payload) {
   if (!payload) return;
