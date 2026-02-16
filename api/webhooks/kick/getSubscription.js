@@ -1,5 +1,3 @@
-import { get, set } from '@vercel/edge-config';
-
 export async function getStatus(payload) {
   if (!payload) return;
   
@@ -8,17 +6,16 @@ export async function getStatus(payload) {
   
   if (eventType === 'livestream.status.updated') {
     const isLive = payload.data?.is_live ?? false;
-    await set('liveStatus', isLive);
+    
     console.log(isLive ? '🔴 Stream INICIADO' : '⏹️ Stream TERMINADO');
   }
 }
 
 export async function getLiveStatus() {
   try {
-    const status = await get('liveStatus');
-    return status ?? false;
+    return false;
   } catch (error) {
-    console.error('Edge Config error:', error);
+    console.error('Error:', error.message);
     return false;
   }
 }
