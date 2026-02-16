@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import {getLiveStatus} from '../../api/webhooks/kick/getSubscription.js'
+import {getLiveStatus} from '../../../../api/webhooks/kick/getSubscription.js'
 
 export const LiveContext = createContext();
 
