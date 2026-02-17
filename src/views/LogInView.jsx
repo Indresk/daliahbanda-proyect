@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 export default function LogInView() {
-    const { logIn, token, loading } = useContext(AuthContext);
+    const { logIn, logged, loading } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -13,7 +13,7 @@ export default function LogInView() {
     const [error, setError] = useState(null);
     const [submitting, setSubmitting] = useState(false);
 
-    if (!loading && token) {
+    if (!loading && logged) {
         const redirectTo = location.state?.from?.pathname || "/test";
         navigate(redirectTo, { replace: true });
     }
