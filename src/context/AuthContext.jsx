@@ -5,7 +5,8 @@ export const AuthContext = createContext();
 const BackURL = import.meta.env.VITE_BACK_URL
 
 function AuthProvider({children}){
-    const [token, setToken] = useState(null)
+    const [token, setToken] = useState(null);
+    const [isLogged,setLogged] = useState(false)
     const [loading, setLoading] = useState(true);
     const [isHydrated, setIsHydrated] = useState(false);
 
@@ -26,6 +27,7 @@ function AuthProvider({children}){
     if (!res.ok) throw new Error("Login failed");
     const data = await res.json();
     setToken(data.accessToken);
+    setLogged(true)
     setLoading(false);
     }
 
@@ -44,9 +46,11 @@ function AuthProvider({children}){
             }
 
             const data = await res.json();
+            setLogged(true)
             setToken(data.accessToken);
         } catch {
             setToken(null);
+            setLogged(false)
         } finally {
             setLoading(false);
         }
@@ -59,6 +63,7 @@ function AuthProvider({children}){
         credentials: "include",
         });
         setToken(null);
+        setLogged(false)
         setLoading(false);
     };
 
@@ -67,7 +72,7 @@ function AuthProvider({children}){
     }, [token]);    
 
     return(
-        <AuthContext.Provider value={{token:token,logIn:logIn,logOut:logOut,loading:loading,apiFetch:apiFetch,isHydrated:isHydrated}}>
+        <AuthContext.Provider value={{logged:isLogged,logIn:logIn,logOut:logOut,loading:loading,apiFetch:apiFetch,isHydrated:isHydrated}}>
             {children}
         </AuthContext.Provider>
     )

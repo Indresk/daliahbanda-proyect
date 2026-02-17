@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 
 const ProtectedRoute = () => {
-    const { token, loading, isHydrated } = useContext(AuthContext)
+    const { logged, loading, isHydrated } = useContext(AuthContext)
 
     if (!isHydrated) return null
 
@@ -11,7 +11,7 @@ const ProtectedRoute = () => {
         return <div>Loading...</div>;
     }
 
-    if (!token) return <Navigate to="/login" replace />
+    if (!logged) return <Navigate to="/login" replace />
 
     return <Outlet />
 };

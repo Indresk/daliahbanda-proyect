@@ -1,22 +1,11 @@
-import { NavLink, useLocation } from 'react-router-dom'
-import { useEffect,useContext } from 'react'
+import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
 
 import LiveBanner from './LiveBanner'
 import { LiveContext } from '../../../context/LiveContext.jsx'
-import {getLiveStatus} from '../../../../api/webhooks/kick/getSubscription.js'
 
 export default function Header(){
-    const {liveStatus,setLiveStatus} = useContext(LiveContext)
-
-    const location = useLocation()
-
-    useEffect(() => {
-        async function statusSeter(){
-            let temporalStatus = await getLiveStatus()
-            setLiveStatus(temporalStatus); 
-        }
-        statusSeter();
-    }, [location.pathname]); 
+    const {liveStatus} = useContext(LiveContext)
   
     return (
         <header className='bg-black'>

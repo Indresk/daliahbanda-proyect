@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { getGeneralData } from "../services/firebase";
 
 export const LiveContext = createContext();
 
@@ -6,8 +7,11 @@ function LiveProvider({children}){
     const [liveStatus, setLiveStatus] = useState(false)
 
     useEffect(()=>{
-        localStorage.setItem('liveStatus',liveStatus)
-    },[liveStatus])
+        async function fetchStatus(){
+            setLiveStatus(await getGeneralData("live","status"))
+        }
+        fetchStatus();
+    },[])
 
     return(
         <LiveContext.Provider value={{liveStatus:liveStatus,setLiveStatus:setLiveStatus}}>

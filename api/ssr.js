@@ -2,7 +2,6 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import fs from 'node:fs/promises'
 import express from 'express'
-import WebhookRouter from './routes/webhooks.router.js'
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -13,8 +12,6 @@ const __dirname = dirname(__filename)
 
 // Create http server → EXPORTAR app
 export const app = express()
-
-app.use('/webhook', WebhookRouter)
 
 app.set('trust proxy', 1)
 // Add Vite or respective production middlewares

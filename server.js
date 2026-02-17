@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises'
 import express from 'express'
-import WebhookRouter from './api/routes/webhooks.router.js'
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -14,8 +13,6 @@ const templateHtml = isProduction
 
 // Create http server
 const app = express()
-
-app.use('/webhook', WebhookRouter)
 
 app.use((req, res, next) => {
   if (!req.protocol) {
