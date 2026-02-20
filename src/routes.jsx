@@ -5,6 +5,9 @@ import AlbumsView from "./views/AlbumsView"
 import ProtectedRoute from "./components/Login/ProtectedRoute"
 import ErrorView from "./views/ErrorView"
 import App from "./App"
+import LatestView from "./views/LatestView"
+import NewsView from "./views/NewsView"
+import ShopView from "./views/ShopView"
 
 export const routes = [
   {
@@ -27,6 +30,21 @@ export const routes = [
         path: "albums",
         loader: () => ({}),
         Component: () => <AlbumsView/>,
+      },
+      {
+        path: "latest",
+        loader: () => ({}),
+        Component: () => <LatestView/>,
+      },
+      {
+        path: "news",
+        loader: () => ({}),
+        Component: () => <NewsView/>,
+      },
+      {
+        path: "shop",
+        loader: () => ({}),
+        Component: () => <ShopView/>,
       },
       {
         path: "login",
