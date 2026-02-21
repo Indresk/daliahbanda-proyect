@@ -10,7 +10,7 @@ const ProtectedRoute = () => {
     if (loading) {
         return <div>Loading...</div>;
     }
-    
+
 
     if (!logged) return <Navigate to="/login" replace />
 
