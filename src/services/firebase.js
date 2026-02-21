@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc,getDoc,updateDoc, getDocs,doc , query , where,limit } from "firebase/firestore";
-import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
+import { initializeAppCheck, ReCaptchaV3Provider,getToken  } from "firebase/app-check";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -13,25 +13,39 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+
+let appCheckInstance = null;
 
 if (typeof window !== "undefined") {
-  initializeAppCheck(app, {
-    provider: new ReCaptchaV3Provider(
-      import.meta.env.VITE_RECAPTCHA_V3_SITE_KEY
-    ),
-    isTokenAutoRefreshEnabled: true
-  });
+    // self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+    appCheckInstance = initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(
+                import.meta.env.VITE_RECAPTCHA_V3_SITE_KEY
+            ),
+        isTokenAutoRefreshEnabled: true
+    });
 }
 
-export async function addFireData(newData) {
+const db = getFirestore(app);
+
+async function waitForAppCheckToken() {
+    if (!appCheckInstance) return;
     try {
-        let itemSended = await addDoc(collection(db, "general-data"),
-            newData
-        )
-        return (itemSended.id)
+        await getToken(appCheckInstance, false);
     } catch (error) {
-        throw new Error(`Error registrando el producto: ${error.message}`)
+        console.error("AppCheck token error:", error);
+        throw error;
+    }
+}
+
+export async function getGeneralData(element,reqData) {
+    try {
+        await waitForAppCheckToken();
+        const dbResponse = await getDoc(doc(db,"general-data",element))
+        const generalObject = dbResponse.data()
+        return generalObject[reqData]
+    } catch (error) {
+        throw new Error(`Error solicitando la data: ${error.message}`)
     }
 }
 
@@ -46,23 +60,6 @@ export async function getFireData() {
     }
 }
 
-export async function updateGeneralData(element,newData) {
-    try {
-        await updateDoc(doc(db, "general-data",element),newData)
-    } catch (error) {
-        throw new Error(`Error registrando la data: ${error.message}`)
-    }
-}
-
-export async function getGeneralData(element,reqData) {
-    try {
-        const dbResponse = await getDoc(doc(db,"general-data",element))
-        const generalObject = dbResponse.data()
-        return generalObject[reqData]
-    } catch (error) {
-        throw new Error(`Error solicitando la data: ${error.message}`)
-    }
-}
 
 export async function getUser(email) {
     try {
