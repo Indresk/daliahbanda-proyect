@@ -1,17 +1,18 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 
 import LiveBanner from './LiveBanner'
 import { LiveContext } from '../../../context/LiveContext.jsx'
 import DaliahIconVector from '../../../assets/DaliahIconVector.jsx'
 import Button from '../../buttons/GeneralButton.jsx'
-import { useOverlay } from '../../../hooks/BlurOverlay/useMainBlur.js';
+import { useBlockScroll } from '../../../hooks/useBlockScroll.js';
 
 export default function Header(){
     const {liveStatus} = useContext(LiveContext)
     const [dropdown,setDropdown] = useState(false)
     const location = useLocation();
-    useOverlay(dropdown)
+
+    useBlockScroll(dropdown)
 
     useEffect(()=>{
         // async function closeTimer() {
@@ -24,8 +25,8 @@ export default function Header(){
         <header className='dark:bg-black bg-white z-30'>
             {liveStatus&&<LiveBanner/>}
             <section className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-50 py-8'>
-                <nav className='flex gap-4 justify-between items-center relative '>
-                    <NavLink to="/" className="flex items-end"><DaliahIconVector className="w-10 h-10" color='currentcolor'/><span className='flex flex-col text-base/3'>'aliah<small className='text-[10px] text-end'>banda</small></span></NavLink>
+                <nav className='flex gap-4 justify-between items-center relative'>
+                    <NavLink to="/" className="flex items-end"><DaliahIconVector className="w-10 h-10"/><span className='flex flex-col text-base/3'>'aliah<small className='text-[10px] text-end'>banda</small></span></NavLink>
 
                     {/* LARGE */}
                     <ul className='gap-4 hidden md:flex items-center'>
@@ -41,16 +42,19 @@ export default function Header(){
 
                     {/* SMALL */}
                     {dropdown&&
-                    <div className='absolute inset-x-0 top-16 bg-gray-500 overflow-hidden'>
-                        <ul className='gap-1 flex flex-col p-4'>
-                            <li><NavLink to="/albums" className={({isActive})=>isActive?"text-pink-500":''}>Discografía</NavLink></li>
-                            <li><NavLink to="/latest" className={({isActive})=>isActive?"text-pink-500":''}>Últimos lanzamientos</NavLink></li>
-                            <li><NavLink to="/news" className={({isActive})=>isActive?"text-pink-500":''}>Noticias</NavLink></li>
-                            <li><NavLink to="/shop" className={({isActive})=>isActive?"text-pink-500":''}>Tienda</NavLink></li>
-                        </ul>
+                    <div onClick={()=>setDropdown(prev=>!prev)} className='fixed inset-x-0 top-[104px] h-[90vh] backdrop-blur-sm backdrop-brightness-50'>
+                        <div className='bg-gray-300 dark:bg-gray-600 w-[90vw] m-auto overflow-hidden'>
+                            <ul className='gap-1 flex flex-col p-4'>
+                                <li><NavLink to="/albums" className={({isActive})=>isActive?"text-pink-500":''}>Discografía</NavLink></li>
+                                <li><NavLink to="/latest" className={({isActive})=>isActive?"text-pink-500":''}>Últimos lanzamientos</NavLink></li>
+                                <li><NavLink to="/news" className={({isActive})=>isActive?"text-pink-500":''}>Noticias</NavLink></li>
+                                <li><NavLink to="/shop" className={({isActive})=>isActive?"text-pink-500":''}>Tienda</NavLink></li>
+                            </ul>
+                        </div>
                     </div>}
                 </nav>
             </section>
         </header>
+        
     )
 }

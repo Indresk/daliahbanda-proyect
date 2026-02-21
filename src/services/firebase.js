@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc,getDoc,updateDoc, getDocs,doc , query , where,limit } from "firebase/firestore";
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
+
+const FIREKEY = import.meta.env.VITE_SECRET_FIREKEY
 
 const firebaseConfig = {
   apiKey: "AIzaSyAWiQnBa9YhiP4txLwtKWHL_Czb_pQK5e4",
@@ -13,6 +16,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+const appCheck = initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider(FIREKEY),
+  isTokenAutoRefreshEnabled: true
+});
 
 export async function addFireData(newData) {
     try {

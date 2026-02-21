@@ -1,11 +1,10 @@
-const DaliahIconVector = ({ className = "w-16 h-16", color, ...props }) => (
+const DaliahIconVector = ({ className = "w-16 h-16", color='currentcolor'}) => (
 
   <svg
     className={className}
     viewBox="0 0 763.92 763.92"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props}
   >
 <defs/>
 <g id="group0" 
