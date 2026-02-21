@@ -1,26 +1,28 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc,getDoc,updateDoc, getDocs,doc , query , where,limit } from "firebase/firestore";
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
-
-const FIREKEY = import.meta.env.VITE_SECRET_FIREKEY
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAWiQnBa9YhiP4txLwtKWHL_Czb_pQK5e4",
-  authDomain: "daliahpagedb.firebaseapp.com",
-  projectId: "daliahpagedb",
-  storageBucket: "daliahpagedb.firebasestorage.app",
-  messagingSenderId: "69493768608",
-  appId: "1:69493768608:web:6a254f184e26490b8924c5",
-  measurementId: "G-NFEF3MVSQQ"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASSUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider(FIREKEY),
-  isTokenAutoRefreshEnabled: true
-});
+if (typeof window !== "undefined") {
+  initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider(
+      import.meta.env.VITE_RECAPTCHA_V3_SITE_KEY
+    ),
+    isTokenAutoRefreshEnabled: true
+  });
+}
 
 export async function addFireData(newData) {
     try {
