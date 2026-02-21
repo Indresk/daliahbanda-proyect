@@ -3,11 +3,14 @@ import DaliahIconVector from "../../../assets/DaliahIconVector";
 
 export default function Footer(){
     return(
-        <footer className="bg-black">
-            <hr className='mx-8 '/>
-            <div className="p-4 flex justify-between">
-                <NavLink to="/" className="flex items-end"><DaliahIconVector className="w-20 h-20" color={'#fff'}/><span className='flex flex-col text-base/3'>'aliah<small className='text-[10px] text-end'>banda</small></span></NavLink>
-                <aside className="flex items-center gap-4">
+        <footer className="dark:bg-black bg-white">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                
+                <div className="flex flex-col items-start justify-between gap-y-12 pt-16 pb-6 lg:flex-row lg:items-center lg:py-16">
+                    <NavLink to="/"><DaliahIconVector className="w-20 h-20" color="currentcolor"/></NavLink>
+                    <div>Footer info</div>
+                </div>
+                <div className="flex flex-col items-center border-t border-gray-200 pt-8 pb-12 md:flex-row-reverse md:justify-between md:pt-6">
                     <div>
                         <h2>Contacto y redes oficiales</h2>
                     </div>
@@ -16,7 +19,7 @@ export default function Footer(){
                         <li>Instagram: @daliah_banda</li>
                         <li>Facebook: Daliah Banda</li>
                     </ul>
-                </aside>
+                </div>
             </div>
             
         </footer>

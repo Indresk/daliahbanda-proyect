@@ -4,19 +4,21 @@ export default function Index(){
 
     return(
       <>
-        <section id="hero">
-          <h1 className='font-bold'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
-          <picture>
-            <img src="/DaliahLogoWhite.png" alt="Banda Daliah posando en sesión fotográfica promocional, metalcore y pop emo punk desde Bogotá" />
-          </picture>
+        <section id="hero" className="overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-36">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h1 className='font-bold'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
+            <picture>
+              <img src="/DaliahLogoWhite.png" alt="Banda Daliah posando en sesión fotográfica promocional, metalcore y pop emo punk desde Bogotá" />
+            </picture>
+          </div>
         </section>
 
-        <section id="" className="m-8">
+        <section id="" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2>Sonido alternativo que fusiona punk rock, pop-punk y metal progresivo con letras emocionales, sociales y políticas.</h2>
           <p>Daliah es una banda formada en Bogotá en 2018 que construye una propuesta musical intensa y reflexiva. Su sonido recuerda a los openings de la cultura geek y al emo de los 2000, combinando melodía, potencia instrumental y un mensaje directo.</p>
         </section>
 
-        <div className="m-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           <section>
             <h2>Quiénes somos</h2>
             <p>Daliah es una agrupación musical colombiana con más de cinco años de trayectoria en la escena alternativa. Su propuesta nace del punk rock y el pop-punk clásico, integrando la complejidad del metal progresivo para crear un sonido energético y contemporáneo.</p>
@@ -43,7 +45,7 @@ export default function Index(){
           </section>
         </div>
 
-        <div className="m-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           <section>
             <h2>Estilo musical e influencias</h2>
             <h3>Metalcore, Pop Emo Punk y Rock Alternativo</h3>
@@ -70,7 +72,7 @@ export default function Index(){
           </section>
         </div>
 
-        <section className="m-8">
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl">Nuestra música</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             <article>
@@ -116,27 +118,31 @@ export default function Index(){
           </div>
         </section>
 
-        <div className="m-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <section>
-            <h2>Trayectoria y presentaciones</h2>
-            <p>Desde su formación, Daliah ha participado en la escena rock bogotana en espacios como The Music Hall, The Grange Bar Records, La Chorizería, Jersey Bar y Jackass Rock Bar.</p>
-            <p>También ha sido parte de eventos culturales y educativos, incluyendo presentaciones en la Universidad Nacional de Colombia, donde resultaron ganadores del reality “Batalla de Bandas FACARTES - Rock n Blend”.</p>
-            <picture>
-              <img src="/DaliahLogoWhite.png" alt="Daliah Banda en concierto durante evento cultural universitario en Bogotá" />
-            </picture>
-          </section>
-          <section>
-            <h2>Contacto y redes oficiales</h2>
-            <p>Para contrataciones, prensa o colaboraciones:</p>
-            <ul>
-              <li>Correo: <a href="mailto:daliahbanda@gmail.com">daliahbanda@gmail.com</a></li>
-              <li>Instagram: @daliah_banda</li>
-              <li>Facebook: Daliah Banda</li>
-            </ul>
-            <picture className="inline-block w-[300px]">
-              <img src="/DaliahLogoWhiteIcon.ico" alt="Logos de Instagram y Facebook de Daliah Banda" />
-            </picture>
-          </section>
+        <div className="border-t border-gray-200 py-20 sm:py-32">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <section>
+                <h2>Trayectoria y presentaciones</h2>
+                <p>Desde su formación, Daliah ha participado en la escena rock bogotana en espacios como The Music Hall, The Grange Bar Records, La Chorizería, Jersey Bar y Jackass Rock Bar.</p>
+                <p>También ha sido parte de eventos culturales y educativos, incluyendo presentaciones en la Universidad Nacional de Colombia, donde resultaron ganadores del reality “Batalla de Bandas FACARTES - Rock n Blend”.</p>
+                <picture>
+                  <img src="/DaliahLogoWhite.png" alt="Daliah Banda en concierto durante evento cultural universitario en Bogotá" />
+                </picture>
+              </section>
+              <section>
+                <h2>Contacto y redes oficiales</h2>
+                <p>Para contrataciones, prensa o colaboraciones:</p>
+                <ul>
+                  <li>Correo: <a href="mailto:daliahbanda@gmail.com">daliahbanda@gmail.com</a></li>
+                  <li>Instagram: @daliah_banda</li>
+                  <li>Facebook: Daliah Banda</li>
+                </ul>
+                <picture className="inline-block w-[300px]">
+                  <img src="/DaliahLogoWhiteIcon.ico" alt="Logos de Instagram y Facebook de Daliah Banda" />
+                </picture>
+              </section>
+            </div>
+          </div>
         </div>
       </>
     )
