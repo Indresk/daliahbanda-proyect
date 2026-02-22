@@ -1,0 +1,22 @@
+{
+  "name": "Daliah Banda",
+  "short_name": "Daliah",
+  "description": "Sitio oficial de Daliah Banda. Música, eventos en vivo, contenido exclusivo y novedades.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://assets.daliahbanda.com/brand/logos/icon/daliah-logo-icon-512-v1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "https://assets.daliahbanda.com/brand/logos/icon/daliah-logo-icon-192-v1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

@@ -15,7 +15,7 @@ export const metaIndex = {
     url: "https://daliahbanda.com/",
     siteName: "Daliah Banda",
     locale: "es_CO",
-    image: "https://daliahbanda.com/DaliahLogoWhite.png",
+    image: "https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-white-background-v1.webp",
     imageWidth: 1281,
     imageHeight: 675,
     imageAlt: "Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá"
@@ -25,7 +25,7 @@ export const metaIndex = {
     card: "summary",
     title: "Daliah Banda | Metalcore · Pop Emo Punk",
     description: "Banda de metalcore y pop emo punk desde Bogotá. Letras intensas, sonido potente y espíritu alternativo.",
-    image: "https://daliahbanda.com/DaliahLogoWhite.png",
+    image: "https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-white-background-v1.webp",
     site: "@daliah_banda",
     creator: "@daliah_banda"
   },

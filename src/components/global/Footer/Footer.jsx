@@ -1,5 +1,4 @@
 import { NavLink } from "react-router";
-import DaliahIconVector from "../../../assets/DaliahIconVector";
 
 export default function Footer(){
     return(
@@ -7,7 +6,7 @@ export default function Footer(){
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 
                 <div className="flex flex-col items-start justify-between gap-y-12 pt-16 pb-6 lg:flex-row lg:items-center lg:py-16">
-                    <NavLink to="/"><DaliahIconVector className="w-20 h-20" color="currentcolor"/></NavLink>
+                    <NavLink to="/" className='w-15'><img className="black-icon" src="https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg" alt="Logo de Daliah Banda" /></NavLink>
                     <div>Footer info</div>
                 </div>
                 <div className="flex flex-col items-center border-t border-gray-200 pt-8 pb-12 md:flex-row-reverse md:justify-between md:pt-6">

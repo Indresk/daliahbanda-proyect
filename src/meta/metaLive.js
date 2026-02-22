@@ -20,7 +20,7 @@ export const metaLive = {
     url: "https://daliahbanda.com/live",
     siteName: "Daliah Banda",
     locale: "es_CO",
-    image: "https://daliahbanda.com/DaliahLogoWhite.png",
+    image: "https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-white-background-v1.webp",
     imageWidth: 1281,
     imageHeight: 675,
     imageAlt:"Daliah Banda transmitiendo ensayo en vivo de metalcore desde Bogotá",
@@ -31,7 +31,7 @@ export const metaLive = {
     card: "summary_large_image",
     title: "Daliah Banda en vivo | Streaming oficial",
     description:"Ensayo en directo de Daliah Banda vía Kick. Metalcore y pop emo punk desde Bogotá.",
-    image: "https://daliahbanda.com/DaliahLogoWhite.png",
+    image: "https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-white-background-v1.webp",
     site: "@daliah_banda",
     creator: "@daliah_banda"
   },
@@ -53,7 +53,7 @@ export const metaLive = {
     inLanguage: "es-CO",
 
     thumbnailUrl: [
-      "https://daliahbanda.com/DaliahLogoWhite.png"
+      "https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-white-background-v1.webp"
     ],
 
     embedUrl: "https://kick.com/daliahbanda",

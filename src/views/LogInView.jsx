@@ -45,10 +45,10 @@ export default function LogInView() {
             {error && <p className="text-red-800 font-bold text-sm">{error}</p>}
 
             <label className="text-sm" htmlFor="email">Email</label>
-            <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="p-2 rounded border-none bg-gray-700" />
+            <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="p-2 rounded border-none bg-gray-700" autoComplete="true"/>
 
             <label className="text-sm" htmlFor="password">Contraseña</label>
-            <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="p-2 rounded border-none bg-gray-700"/>
+            <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="p-2 rounded border-none bg-gray-700" autoComplete="true"/>
 
             <button
                 type="submit"

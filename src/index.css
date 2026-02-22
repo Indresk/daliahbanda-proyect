@@ -28,6 +28,10 @@ html{
   overflow-x: hidden;
 }
 
+.black-icon{
+  filter: invert(1);
+}
+
 img{
   width: 100%;
   height: auto;
@@ -39,6 +43,9 @@ img{
   :root {
     color: #000;
     background-color: #ffffff;
+  }
+  .black-icon{
+    filter: invert(0);
   }
   button {
     background-color: oklch(45.9% 0.187 3.815);
