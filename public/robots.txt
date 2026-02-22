@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /admin/
+Disallow: /server/
+Disallow: /_internal/
+
+Disallow: /*?preview=
+Disallow: /*?token=
+
+Sitemap: https://daliahbanda.com/sitemap.xml
