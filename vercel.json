@@ -1,71 +1,32 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/assets/*",
-      "destination": "/client/assets/*"
+      "src": "/sitemap.xml",
+      "dest": "/client/sitemap.xml"
     },
     {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
+      "src": "/robots.txt",
+      "dest": "/client/robots.txt"
     },
     {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
+      "src": "/manifest.json",
+      "dest": "/client/manifest.json"
     },
     {
-      "source": "/manifest.json",
-      "destination": "/manifest.json"
+      "src": "/browserconfig.xml",
+      "dest": "/client/browserconfig.xml"
     },
     {
-      "source": "/browserconfig.xml",
-      "destination": "/browserconfig.xml"
+      "src": "/assets/(.*)",
+      "dest": "/client/assets/$1"
     },
     {
-      "source": "/misc/*",
-      "destination": "/misc/*"
+      "src": "/(.*\\.(ico|png|jpg|jpeg|svg|webp|css|js|woff2?))",
+      "dest": "/client/$1"
     },
     {
-      "source": "/favicon.ico",
-      "destination": "/favicon.ico"
-    },
-    {
-      "source": "/client/*",
-      "destination": "/client/*"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/api/ssr.js"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/sitemap.xml",
-      "headers": [{ "key": "Content-Type", "value": "application/xml" }]
-    },
-    {
-      "source": "/robots.txt",
-      "headers": [{ "key": "Content-Type", "value": "text/plain" }]
-    },
-    {
-      "source": "/manifest.json",
-      "headers": [{ "key": "Content-Type", "value": "application/manifest+json" }]
-    },
-    {
-      "source": "/browserconfig.xml",
-      "headers": [{ "key": "Content-Type", "value": "application/xml" }]
-    },
-    {
-      "source": "/misc/*",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-    },
-    {
-      "source": "/assets/*",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-    },
-    {
-      "source": "/client/*",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "src": "/(.*)",
+      "dest": "/api/ssr.js"
     }
   ]
 }
