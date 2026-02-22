@@ -2,20 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/assets/(.*)",
-      "destination": "/client/assets/$1"
+      "source": "/assets/*",
+      "destination": "/client/assets/*"
     },
     {
       "source": "/sitemap.xml",
       "destination": "/sitemap.xml"
-    },
-    {
-      "source": "/misc/(.*)",
-      "destination": "/misc/$1"
-    },
-    {
-      "source": "/favicon.ico",
-      "destination": "/favicon.ico"
     },
     {
       "source": "/robots.txt",
@@ -30,8 +22,16 @@
       "destination": "/browserconfig.xml"
     },
     {
-      "source": "/(.*\\.(ico|png|jpg|jpeg|svg|webp|css|js|woff2?|xml|json|txt|webmanifest))",
-      "destination": "/client/$1"
+      "source": "/misc/*",
+      "destination": "/misc/*"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/favicon.ico"
+    },
+    {
+      "source": "/client/*",
+      "destination": "/client/*"
     },
     {
       "source": "/(.*)",
@@ -56,11 +56,15 @@
       "headers": [{ "key": "Content-Type", "value": "application/xml" }]
     },
     {
-      "source": "/misc/(.*)",
+      "source": "/misc/*",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/*",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/client/*",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
