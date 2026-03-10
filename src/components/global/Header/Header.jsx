@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect, useRef } from 'react'
 
 import LiveBanner from './LiveBanner'
 import { LiveContext } from '../../../context/LiveContext.jsx'
@@ -10,19 +10,34 @@ import './header.css'
 export default function Header(){
     const {liveStatus} = useContext(LiveContext)
     const [dropdown,setDropdown] = useState(false)
-    const [graybox,setGraybox] = useState(false)
+    const panelRef = useRef(null);
+    const backgroundPanelRef = useRef(null);
     const location = useLocation();
 
-     useBlockScroll(dropdown)
-
+    useBlockScroll(dropdown)
 
     useEffect(()=>{
-        dropdown&&setDropdown(false);
+        dropdown&&manageDropdown();
     },[location])
 
-    async function dropdownControl() {
-        await new Promise((resolve)=>{setTimeout(()=>resolve(setDropdown(false)),600)})
-        
+    function manageDropdown(){
+        if (dropdown) {
+            const panel = panelRef.current;
+            requestAnimationFrame(() => {
+                backgroundPanelRef.current.style.opacity = '0'
+                panel.style.maxHeight = '0px';
+            });
+            setTimeout(()=>{setDropdown(false)},300)
+        } else {
+            setDropdown(true)
+            setTimeout(()=>{
+                const panel = panelRef.current;
+                backgroundPanelRef.current.style.opacity = '1'
+                requestAnimationFrame(() => {
+                    panel.style.maxHeight = panel.scrollHeight + 'px'
+                });
+            },100)
+        }
     }
 
     return (
@@ -40,15 +55,15 @@ export default function Header(){
                         <li><NavLink to="/shop" className={({isActive})=>isActive?"text-pink-500":''}>Tienda</NavLink></li>
                     </ul>
                     <div className='flex gap-4 items-center'>
-                        <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>{setGraybox(prev=>!prev);setTimeout(()=>setDropdown(prev=>!prev),400);}} className={`cursor-pointer md:hidden transition duration-300 ease-in-out ${dropdown&&"rotate-180"}`} width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 11l8 3l8 -3" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>manageDropdown()} className={`cursor-pointer md:hidden transition duration-300 ease-in-out${dropdown?" rotate-180":''}`} width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 11l8 3l8 -3" /></svg>
                         <NavLink to="/login"><Button>Nuestra comunidad</Button></NavLink>
                     </div>
 
                     {/* SMALL */}
                     {dropdown&&
-                    <div onClick={""} className={`header-dropdown`}>         
-                        <div className={`backdrop-blur-sm backdrop-brightness-50 h-[90vh]`}>
-                            <div className={`bg-gray-300 dark:bg-gray-600 w-[90vw] m-auto overflow-hidden ${graybox?"expand-menu":"contract-menu" }`}>
+                    <div onClick={()=>manageDropdown()} className={`header-dropdown`}>
+                        <div ref={backgroundPanelRef} className={`backdrop-blur-sm backdrop-brightness-50 transition-opacity duration-500 ease-in-out h-full`} style={{opacity: 0}}>
+                            <div ref={panelRef} className={`bg-gray-300 dark:bg-gray-600 w-[90vw] m-auto overflow-hidden transition-[max-height] duration-400 ease-in-out max-h-0`}>
                                 <ul className='gap-1 flex flex-col p-4'>
                                     <li><NavLink to="/albums" className={({isActive})=>isActive?"text-pink-500":''}>Discografía</NavLink></li>
                                     <li><NavLink to="/latest" className={({isActive})=>isActive?"text-pink-500":''}>Últimos lanzamientos</NavLink></li>
@@ -58,22 +73,8 @@ export default function Header(){
                             </div>
                         </div>
                     </div>}
-
-                    {/* <div onClick={()=>setDropdown(false)} className={`header-dropdown  transition-all duration-650 ease-in-out transform ${dropdown?"backdrop-blur-sm backdrop-brightness-50 h-[90vh]":"opacity-0"}`}>         
-                        
-                            <div className={`bg-gray-300 dark:bg-gray-600 w-[90vw] m-auto overflow-hidden ${dropdown?"expand-menu":"contract-menu" }`}>
-                                <ul className='gap-1 flex flex-col p-4'>
-                                    <li><NavLink to="/albums" className={({isActive})=>isActive?"text-pink-500":''}>Discografía</NavLink></li>
-                                    <li><NavLink to="/latest" className={({isActive})=>isActive?"text-pink-500":''}>Últimos lanzamientos</NavLink></li>
-                                    <li><NavLink to="/news" className={({isActive})=>isActive?"text-pink-500":''}>Noticias</NavLink></li>
-                                    <li><NavLink to="/shop" className={({isActive})=>isActive?"text-pink-500":''}>Tienda</NavLink></li>
-                                </ul>
-                            </div>
-                        
-                    </div> */}
                 </nav>
             </section>
         </header>
-        
     )
 }

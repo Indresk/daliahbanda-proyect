@@ -14,7 +14,7 @@ const DaliahClicker=()=>{
   }, [daliahCookieCount]);
 return(
     <div className="fixed bottom-[50px] right-[50px] flex items-center gap-3 font-doto">
-        <button className="cookie-button w-[100px] flex justify-center items-center" onClick={()=>{setDaliahCookieCount(daliahCookieCount+1)}}><img className="black-icon" src="https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg" alt="Logo de Daliah Banda" /></button>
+        <button className="cookie-button w-[100px] flex justify-center items-center" onClick={()=>{setDaliahCookieCount(daliahCookieCount+1)}}><img style={{filter:'invert(1)'}} src="https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg" alt="Logo de Daliah Banda" /></button>
         <h2>Daligalletas: {daliahCookieCount}</h2>
     </div>
 );

@@ -8,35 +8,6 @@
     top: anchor(bottom);
     left: anchor(left);
     width: 100vw;
-}
-.expand-menu{
-    animation-duration: 500ms;
-    animation-name: menu;
-    animation-timing-function: ease-in-out;
-    
-}
-@keyframes menu{
-    from{
-        height: 0px;
-    }
-    to{
-        height:140px;
-    }
-}
-
-.contract-menu{
-    animation-duration: 500ms;
-    animation-name: closemenu;
-    animation-timing-function: ease-in-out;
-}
-@keyframes closemenu{
-    from{
-        height: 140px;
-    }
-    to{
-        height:0px;
-        
-        
-    }
+    height: 100vh;
 }
 
