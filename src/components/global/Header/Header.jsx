@@ -65,10 +65,10 @@ export default function Header(){
                         <div ref={backgroundPanelRef} className={`backdrop-blur-sm backdrop-brightness-50 transition-opacity duration-500 ease-in-out h-full`} style={{opacity: 0}}>
                             <div ref={panelRef} className={`bg-gray-300 dark:bg-gray-600 w-[90vw] m-auto overflow-hidden transition-[max-height] duration-400 ease-in-out max-h-0`}>
                                 <ul className='gap-1 flex flex-col p-4'>
-                                    <li><NavLink to="/albums" className={({isActive})=>isActive?"text-pink-500":''}>Discografía</NavLink></li>
-                                    <li><NavLink to="/latest" className={({isActive})=>isActive?"text-pink-500":''}>Últimos lanzamientos</NavLink></li>
-                                    <li><NavLink to="/news" className={({isActive})=>isActive?"text-pink-500":''}>Noticias</NavLink></li>
-                                    <li><NavLink to="/shop" className={({isActive})=>isActive?"text-pink-500":''}>Tienda</NavLink></li>
+                                    <li><NavLink to="/albums" className={({isActive})=>`w-full inline-block${isActive ? " text-pink-500" : ""}`}>Discografía</NavLink></li>
+                                    <li><NavLink to="/latest" className={({isActive})=>`w-full inline-block${isActive ? " text-pink-500" : ""}`}>Últimos lanzamientos</NavLink></li>
+                                    <li><NavLink to="/news" className={({isActive})=>`w-full inline-block${isActive ? " text-pink-500" : ""}`}>Noticias</NavLink></li>
+                                    <li><NavLink to="/shop" className={({isActive})=>`w-full inline-block${isActive ? " text-pink-500" : ""}`}>Tienda</NavLink></li>
                                 </ul>
                             </div>
                         </div>

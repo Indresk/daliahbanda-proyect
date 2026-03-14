@@ -16,19 +16,19 @@ function AuthProvider({children}){
     }, []);
 
     async function logIn(credentials){
-    setLoading(true)
-    const res = await fetch(`${BackURL}/auth/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify(credentials),
-    });
+        setLoading(true)
+        const res = await fetch(`${BackURL}/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify(credentials),
+        });
 
-    if (!res.ok) throw new Error("Login failed");
-    const data = await res.json();
-    setToken(data.accessToken);
-    setLogged(true)
-    setLoading(false);
+        if (!res.ok) throw new Error("Login failed");
+        const data = await res.json();
+        setToken(data.accessToken);
+        setLogged(true)
+        setLoading(false);
     }
 
     async function refreshToken(){

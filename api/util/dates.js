@@ -24,6 +24,13 @@ export function getStreamingEnd() {
   return end;
 }
 
+export function getPreviousStreaming(){
+  const futureDate = getStreamingEnd();
+  const previousDate = new Date(futureDate);
+  previousDate.setUTCDate(futureDate.getUTCDate() - 8);
+  return previousDate; 
+}
+
 export function DateToESString(dateUTC, options = {}) {
   const { hours = false, day = false, all = true } = options;
   

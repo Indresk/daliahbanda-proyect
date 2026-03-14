@@ -1,7 +1,8 @@
-import { getStreamingStart,getStreamingEnd } from "../../api/util/dates"
+import { getStreamingStart,getStreamingEnd, getPreviousStreaming } from "../../api/util/dates"
 
 let streamingStart = getStreamingStart()
 let streamingEnd = getStreamingEnd()
+let streamingPrevious = getPreviousStreaming()
 
 export const metaLive = {
   title: "Daliah Banda en vivo | Ensayo Metalcore en Directo desde Bogotá",
@@ -55,6 +56,8 @@ export const metaLive = {
     thumbnailUrl: [
       "https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-white-background-v1.webp"
     ],
+
+    uploadDate: streamingPrevious,
 
     embedUrl: "https://kick.com/daliahbanda",
     contentUrl: "https://kick.com/daliahbanda",
