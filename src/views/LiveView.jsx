@@ -1,5 +1,5 @@
 import { LiveContext } from "../context/LiveContext"
-import { useContext } from "react"
+import { useContext} from "react"
 
 import { Link } from "react-router"
 
@@ -12,11 +12,10 @@ const startHour=DateToESString(UTCDateStart,{hours:true})
 const endHour=DateToESString(UTCDateEnd,{hours:true})
 
 export default function LiveView(){
-
     const {liveStatus} = useContext(LiveContext)
 
     return(
-        <>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <section>
                 <h1>Daliah Banda en vivo | Ensayo oficial vía Kick desde Bogotá</h1>
                 <p>Transmisión en directo de los ensayos oficiales de Daliah Banda, banda de metalcore y pop emo punk formada en Bogotá, Colombia. 
@@ -26,9 +25,13 @@ export default function LiveView(){
                 <h2 id="stream-player">Ensayo en vivo</h2>
                 <div className="video-container">
                     {liveStatus?
-                        <iframe className="w-full aspect-video" src="https://player.kick.com/daliahbanda" frameborder="0" allowfullscreen="true"></iframe>:
-                        <div className="aspect-video bg-gray-500 flex justify-center items-center w-full">
-                            <p>No tenemos live ahora mismo, puedes seguir el canal oficial en <a className="underline text-pink-800" href="https://kick.com/daliahbanda" target="_blank" rel="noopener noreferrer">Kick</a> para recibir notificaciones cuando inicie el próximo ensayo.</p>
+                        <iframe className="w-full aspect-video" src="https://player.kick.com/daliahbanda" allowFullScreen></iframe>:
+                        <div className="aspect-video bg-gray-500 flex justify-center items-center w-full gap-4 flex-wrap p-4">
+                            <p>No estamos en live ahora mismo, puedes seguir el canal oficial en <a className="underline text-pink-800" href="https://kick.com/daliahbanda" target="_blank" rel="noopener noreferrer">Kick</a> para recibir notificaciones cuando inicie el próximo ensayo.</p>
+                            <div className="flex flex-col justify-center items-center">
+                                <p>Último live:</p>
+                                <iframe className="w-full aspect-video" src="https://player.kick.com/daliahbanda" allowFullScreen></iframe>
+                            </div>
                         </div>
                     }
                 </div>
@@ -75,6 +78,6 @@ export default function LiveView(){
                 y conectando con la banda en sus redes sociales oficiales. 
                 El respaldo de la audiencia fortalece la escena metalcore y alternativa en Colombia.</p>
             </section>
-        </>
+        </div>
     )
 }

@@ -47,3 +47,45 @@
     opacity: 1;
   }
 }
+
+#cookie-bookmark{
+  position: relative;
+  width: 28px;
+  cursor: pointer;
+  
+}
+
+#cookie-bookmark::before{
+  z-index: -1;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  background-image: linear-gradient(to bottom, #888, #333);
+  clip-path: polygon(0% 10%,0% 90%, 100% 100%, 100% 0%);
+}
+
+.cookie-bookmark-container{
+  clip-path: polygon(0% 10%,0% 90%, 100% 100%, 100% 0%);
+  transform: scale(.92);
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 10px 5px 10px 5px;
+}
+
+.full-clicker-window{
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 2px solid #555;
+  border-image: linear-gradient(to bottom, #888, #333) 1;
+  color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 10px 0px 10px rgba(0,0,0,0.5);
+}
+
+.full-clicker-header{
+  font-weight: bold;
+  border-bottom: 1px solid #777;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.40);
+}

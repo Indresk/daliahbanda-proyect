@@ -9,7 +9,6 @@ function LiveProvider({children}){
     useEffect(()=>{
         async function fetchStatus(){
             setLiveStatus(await getGeneralData("live-public","status"))
-            // setLiveStatus(true)
         }
         fetchStatus();
     },[])
