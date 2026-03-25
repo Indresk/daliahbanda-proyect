@@ -20,7 +20,7 @@ export default function BreadCrumb(){
                 {pathnames.map((name, index) => (
                     <div key={index} className="flex gap-x-2">
                         {index > 0 && <p>/</p>}
-                        <p className="cursor-pointer hover:underline" onClick={()=>index===pathnames.length - 1 ? navigate(-1) : navigate(getPath(index),{ replace: true })}>
+                        <p className="cursor-pointer hover:underline" onClick={()=>navigate(getPath(index),{ replace: true })}>
                             {capitalize(name)}
                         </p>
                     </div>
