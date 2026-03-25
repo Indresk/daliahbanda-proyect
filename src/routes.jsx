@@ -1,3 +1,5 @@
+import { useLoaderData, useParams } from "react-router"
+
 import Index from "./views/Index"
 import LiveView from "./views/LiveView"
 import LogInView from "./views/LogInView"
@@ -8,6 +10,8 @@ import App from "./App"
 import LatestView from "./views/LatestView"
 import NewsView from "./views/NewsView"
 import ShopView from "./views/ShopView"
+import AlbumsIndex from "./components/views/Albums/AlbumsIndex"
+import AlbumView from "./components/views/Albums/AlbumView"
 
 export const routes = [
   {
@@ -30,6 +34,22 @@ export const routes = [
         path: "albums",
         loader: () => ({}),
         Component: () => <AlbumsView/>,
+        children:[
+          {
+            index: true,
+            Component: () => <AlbumsIndex/>,
+          },
+          {
+            path: ":albumName",
+            loader: async ({ params }) => {
+              const album = params.albumName;//await fetchAlbum(params.albumName);
+              return { album };
+            },
+            Component: () => {
+              return <AlbumView/>;
+            },
+          },
+        ]
       },
       {
         path: "latest",
