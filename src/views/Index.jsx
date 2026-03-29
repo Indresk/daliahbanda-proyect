@@ -11,11 +11,10 @@ export default function Index(){
                 <img className="static-invert w-40 md:w-60 h-auto" src="https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp" alt="Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá" />
                 <h1 className='text-xs md:text-sm xl:text-lg text-white'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
               </div>
-              
             </div>
             
             <picture className="[grid-area:1/1]">
-              <source media="(min-width: 768px)" srcset="https://assets.daliahbanda.com/images/hero/hero-home-lg-2700-1080-v1.webp"/>
+              <source media="(min-width: 768px)" srcSet="https://assets.daliahbanda.com/images/hero/hero-home-lg-2700-1080-v1.webp"/>
               <img src="https://assets.daliahbanda.com/images/hero/hero-home-sm-1280-960-v2.webp" alt="Banda Daliah posando en vivo, metalcore y pop emo punk desde Bogotá" />
             </picture>
           </div>
