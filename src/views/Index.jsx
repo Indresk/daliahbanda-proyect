@@ -1,14 +1,22 @@
 import { Link } from "react-router"
 
 export default function Index(){
-
+//
     return(
       <>
-        <section id="hero" className="overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-36">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className='font-bold'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
-            <picture>
-              <img className="black-icon" src="https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp" alt="Banda Daliah posando en sesión fotográfica promocional, metalcore y pop emo punk desde Bogotá" />
+        <section id="hero" className="overflow-hidden pb-20 md:pb-32">
+          <div className="grid">
+            <div className="[grid-area:1/1] z-1 flex items-end p-4 md:p-10 bg-linear-to-tr from-black/80 via-black/20 to-transparent">
+              <div className="flex flex-col">
+                <img className="static-invert w-40 md:w-60 h-auto" src="https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp" alt="Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá" />
+                <h1 className='text-xs md:text-sm xl:text-lg text-white'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
+              </div>
+              
+            </div>
+            
+            <picture className="[grid-area:1/1]">
+              <source media="(min-width: 768px)" srcset="https://assets.daliahbanda.com/images/hero/hero-home-lg-2700-1080-v1.webp"/>
+              <img src="https://assets.daliahbanda.com/images/hero/hero-home-sm-1280-960-v2.webp" alt="Banda Daliah posando en vivo, metalcore y pop emo punk desde Bogotá" />
             </picture>
           </div>
         </section>
