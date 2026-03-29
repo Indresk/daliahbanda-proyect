@@ -29,7 +29,6 @@ html{
 }
 
 img{
-  height: auto;
   display: inline-block;
   object-fit: cover;
   vertical-align: middle

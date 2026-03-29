@@ -5,6 +5,10 @@
       "dest": "/client/sitemap.xml"
     },
     {
+      "src": "/sitemap-pages.xml",
+      "dest": "/client/sitemap-pages.xml"
+    },
+    {
       "src": "/robots.txt",
       "dest": "/client/robots.txt"
     },
