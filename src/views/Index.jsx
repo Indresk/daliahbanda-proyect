@@ -6,10 +6,12 @@ export default function Index(){
       <>
         <section id="hero" className="overflow-hidden pb-20 md:pb-32">
           <div className="grid">
-            <div className="[grid-area:1/1] z-1 flex items-end p-4 md:p-10 bg-linear-to-tr from-black/80 via-black/20 to-transparent">
-              <div className="flex flex-col">
-                <img className="static-invert w-40 md:w-60 h-auto" src="https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp" alt="Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá" />
-                <h1 className='text-xs md:text-sm xl:text-lg text-white'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
+            <div className="[grid-area:1/1] z-1 flex items-end p-4 md:p-6 lg:p-10 bg-linear-to-tr from-black/80 via-black/20 to-transparent">
+              <div className="grid">
+                <img className="static-invert w-40 md:w-60 h-auto [grid-area:1/1]" src="https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp" alt="Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá" />
+                <div className="[grid-area:1/1]">
+                  <h1 className='text-white uppercase text-[8px] md:text-[11px] pl-[90px] md:pl-[135px] pt-[57px] md:pt-[86px]'>Daliah Banda - Metalcore y Pop Emo Punk desde Bogotá</h1>
+                </div>
               </div>
             </div>
             

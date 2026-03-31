@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <sitemap>
-    <loc>https://daliahbanda.com/sitemap-pages.xml</loc>
-  </sitemap>
+  <url>
+    <loc>https://daliahbanda.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-  <sitemap>
-    <loc>https://assets.daliahbanda.com/sitemap.xml</loc>
-  </sitemap>
+  <url>
+    <loc>https://daliahbanda.com/live</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+<!-- 
+  <url>
+    <loc>https://daliahbanda.com/albums</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-</sitemapindex>
+  <url>
+    <loc>https://daliahbanda.com/latest</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://daliahbanda.com/news</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://daliahbanda.com/contact</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url> -->
+
+</urlset>
