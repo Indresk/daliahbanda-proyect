@@ -6,10 +6,11 @@
 @theme {
   --font-pixelify: "Pixelify Sans", ui-sans-serif, system-ui, sans-serif;
   --font-doto: "Doto", ui-sans-serif, system-ui, sans-serif;
+  --color-darkgray: #1e1e1e;
 }
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: roboto ,system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

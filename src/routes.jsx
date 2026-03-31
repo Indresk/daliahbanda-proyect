@@ -12,6 +12,7 @@ import NewsView from "./views/NewsView"
 import ShopView from "./views/ShopView"
 import AlbumsIndex from "./components/views/Albums/AlbumsIndex"
 import AlbumView from "./components/views/Albums/AlbumView"
+import Test from "./views/Test"
 
 export const routes = [
   {
@@ -77,7 +78,7 @@ export const routes = [
           {
             path: "test",
             loader: () => ({ message: "test loaded" }),
-            Component: () => <h1>test01</h1>,
+            Component: () => <Test/>,
           },
         ]
       }
