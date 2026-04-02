@@ -35,44 +35,42 @@ export default function Index() {
 					</picture>
 				</div>
 			</section>
-
-			<div className='flex flex-col md:flex-row'>
-				<section className='p-8 md:p-14 md:pb-0 flex basis-[60%] order-2 md:order-1'>
-					<picture className='flex items-end basis-[40%] max-h-[675px]'>
-						<img
-							className='block h-full w-auto max-w-full object-contain'
-							src='https://assets.daliahbanda.com/images/promo/promo-setlist-2025-v1.jpeg'
-							alt='Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá'
-						/>
-					</picture>
-					<div className='pl-8 md:pl-14 flex-1 flex flex-col gap-6 justify-center basis-[50%]'>
-						<h2 className='tracking-tighter font-headline uppercase font-bold text-5xl'>
-							¿Quiénes somos?
-						</h2>
-						<p>
-							Somos una agrupación musical colombiana con más de cinco años de
-							trayectoria en la escena alternativa. Nuestra propuesta nace del
-							punk rock y el pop punk clásico, integrando la complejidad del
-							metal progresivo para crear un sonido energético y contemporáneo.
-						</p>
-						<p>
-							En nuestras letras abordamos temáticas emocionales, sociales y
-							políticas, invitando a la reflexión personal y colectiva.
-						</p>
-					</div>
+			<div className='flex flex-row'>
+				<picture className='flex items-end basis-[40%] md:basis-[20%] pl-8 pt-8 md:pl-14 md:pt-14'>
+					<img
+						className='block h-full w-auto max-w-full object-contain'
+						src='https://assets.daliahbanda.com/images/promo/promo-setlist-2025-v1.jpeg'
+						alt='Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá'
+					/>
+				</picture>
+				<section className='p-8 pb-0 md:p-14 md:pb-0 flex-1 flex flex-col gap-6 justify-center basis-[30%]'>
+					<h2 className='tracking-tighter font-headline uppercase font-bold text-5xl'>
+						¿Quiénes somos?
+					</h2>
+					<p>
+						Somos una agrupación musical colombiana con más de cinco años de
+						trayectoria en la escena alternativa. Nuestra propuesta nace del
+						punk rock y el pop punk clásico, integrando la complejidad del metal
+						progresivo para crear un sonido energético y contemporáneo.
+					</p>
+					<p>
+						En nuestras letras abordamos temáticas emocionales, sociales y
+						políticas, invitando a la reflexión personal y colectiva.
+					</p>
 				</section>
 
-				<LiveCard className='hidden md:flex order-1 md:order-2 md:basis-[40%]' />
+				<LiveCard className='hidden md:flex md:basis-[45%]' />
 			</div>
+
 			<div className='relative'>
-				<section className='flex justify-end pt-10 md:pt-20 lg:pt-30 xl:pt-50 pb-8 md:pb-14 px-8 md:pr-34'>
+				<section className='flex justify-end pt-15 md:pt-20 lg:pt-30 xl:pt-50 pb-8 md:pb-14 px-8 md:pr-34'>
 					<div className='md:basis-[50%] flex flex-col gap-4'>
-						<h2 className='tracking-tighter font-headline uppercase font-bold text-2xl md:text-4xl lg:text-5xl xl:text-6xl'>
+						<h2 className='tracking-tighter font-headline uppercase font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'>
 							¿Quieres vernos en el escenario?
 						</h2>
 						<Link to='/gallery'>
 							<Button variant='textLink' size='noPadding' rigthArrow>
-								Visita nuestra galleria de fotos
+								Visita nuestra galeria de fotos
 							</Button>
 						</Link>
 					</div>
