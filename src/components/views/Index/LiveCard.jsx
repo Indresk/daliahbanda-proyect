@@ -4,7 +4,7 @@ import Button from '../../buttons/GeneralButton';
 export default function LiveCard({ className }) {
 	return (
 		<section
-			className={`bg-primary px-8 py-14 ${className}`}
+			className={`bg-primary px-8 py-8 md:py-14 ${className}`}
 			aria-labelledby='live-card'>
 			<article className='flex flex-col gap-6 h-full'>
 				<figure>

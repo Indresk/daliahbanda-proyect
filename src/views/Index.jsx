@@ -45,7 +45,7 @@ export default function Index() {
 							alt='Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá'
 						/>
 					</picture>
-					<div className='pl-14 flex-1 flex flex-col gap-6 justify-center basis-[50%]'>
+					<div className='pl-8 md:pl-14 flex-1 flex flex-col gap-6 justify-center basis-[50%]'>
 						<h2 className='tracking-tighter font-headline uppercase font-bold text-5xl'>
 							¿Quiénes somos?
 						</h2>
@@ -67,7 +67,7 @@ export default function Index() {
 			<div className='relative'>
 				<section className='flex justify-end pt-10 md:pt-20 lg:pt-30 xl:pt-50 pb-8 md:pb-14 px-8 md:pr-34'>
 					<div className='md:basis-[50%] flex flex-col gap-4'>
-						<h2 className='tracking-tighter font-headline uppercase font-bold text-6xl'>
+						<h2 className='tracking-tighter font-headline uppercase font-bold text-2xl md:text-4xl lg:text-5xl xl:text-6xl'>
 							¿Quieres vernos en el escenario?
 						</h2>
 						<Link to='/gallery'>
@@ -105,7 +105,7 @@ export default function Index() {
 					</p>
 					<picture>
 						<img
-							className='black-icon'
+							className='static-invert'
 							src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 							alt='Ilustración oscura y emocional que representa el estilo metalcore y emo punk de Daliah'
 						/>
@@ -124,7 +124,7 @@ export default function Index() {
 					</ul>
 					<picture>
 						<img
-							className='black-icon'
+							className='static-invert'
 							src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 							alt='Integrantes de Daliah Banda con instrumentos, banda de metalcore colombiana'
 						/>
@@ -146,7 +146,7 @@ export default function Index() {
 						</p>
 						<picture>
 							<img
-								className='black-icon'
+								className='static-invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Portada del sencillo El amor se acabó de Daliah Banda'
 							/>
@@ -162,7 +162,7 @@ export default function Index() {
 						</p>
 						<picture>
 							<img
-								className='black-icon'
+								className='static-invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Portada ilustrada del sencillo Intento sobrevivir de Daliah Banda'
 							/>
@@ -178,7 +178,7 @@ export default function Index() {
 						</p>
 						<picture>
 							<img
-								className='black-icon'
+								className='static-invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Portada del sencillo Si podré de Daliah Banda, mensaje de autoafirmación'
 							/>
@@ -194,7 +194,7 @@ export default function Index() {
 						</p>
 						<picture>
 							<img
-								className='black-icon'
+								className='static-invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Imagen conceptual de protesta y rebeldía asociada al próximo sencillo Rebelión de Daliah'
 							/>
@@ -206,7 +206,7 @@ export default function Index() {
 						<p>Album recopilatorio de los singles con extras.</p>
 						<picture>
 							<img
-								className='black-icon'
+								className='static-invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Imagen conceptual del album Daliah de Daliah'
 							/>
@@ -233,7 +233,7 @@ export default function Index() {
 							</p>
 							<picture>
 								<img
-									className='black-icon'
+									className='static-invert'
 									src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 									alt='Daliah Banda en concierto durante evento cultural universitario en Bogotá'
 								/>
@@ -254,7 +254,7 @@ export default function Index() {
 							</ul>
 							<picture className='inline-block w-[300px]'>
 								<img
-									className='black-icon'
+									className='static-invert'
 									src='https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg'
 									alt='Logos de Instagram y Facebook de Daliah Banda'
 								/>

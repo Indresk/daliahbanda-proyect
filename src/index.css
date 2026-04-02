@@ -50,10 +50,6 @@ img {
 }
 
 @media (prefers-color-scheme: light) {
-	:root {
-		color: #000;
-		background-color: #ffffff;
-	}
 	.black-icon {
 		filter: invert(0);
 	}

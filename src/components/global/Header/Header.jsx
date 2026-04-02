@@ -49,14 +49,14 @@ export default function Header() {
 	}
 
 	return (
-		<header className='main-header dark:bg-black bg-white z-30'>
+		<header className='main-header bg-black z-30'>
 			{liveStatus && <LiveBanner />}
 			<section className='px-4 sm:px-6 lg:px-10 relative py-6'>
 				<nav className='flex gap-4 justify-between items-center relative'>
 					<div className='basis-40'>
 						<NavLink to='/' className='flex items-end w-10'>
 							<img
-								className='black-icon'
+								className='static-invert'
 								src='https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg'
 								alt='Logo de Daliah Banda'
 							/>
@@ -110,7 +110,7 @@ export default function Header() {
 								style={{ opacity: 0 }}>
 								<div
 									ref={panelRef}
-									className={`bg-gray-300 dark:bg-darkgray w-[90vw] m-auto overflow-hidden transition-[max-height] duration-400 ease-in-out max-h-0`}>
+									className={`bg-darkgray w-[90vw] m-auto overflow-hidden transition-[max-height] duration-400 ease-in-out max-h-0`}>
 									<ul className='gap-1 flex flex-col p-4'>
 										{navigationLinks.map((item) => (
 											<li key={item.link}>

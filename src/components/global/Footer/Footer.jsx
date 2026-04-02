@@ -25,13 +25,13 @@ export default function Footer() {
 
 	return (
 		<>
-			<footer className='dark:bg-black bg-white w-full py-16 border-t-0'>
+			<footer className='bg-black w-full py-16 border-t-0'>
 				<div className='flex flex-col lg:mx-10 md:flex-row justify-between items-start md:items-center px-10 gap-12'>
 					<div className='max-w-sm'>
 						<div className='flex gap-4'>
 							<NavLink to='/' className='basis-40'>
 								<img
-									className='black-icon'
+									className='static-invert'
 									src='https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg'
 									alt='Logo de Daliah Banda'
 								/>
