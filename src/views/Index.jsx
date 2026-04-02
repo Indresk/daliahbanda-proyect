@@ -59,7 +59,10 @@ export default function Index() {
 					</p>
 				</section>
 
-				<LiveCard className='hidden md:flex md:basis-[45%]' />
+				<LiveCard
+					className='hidden md:flex md:basis-[45%]'
+					aria-labelledby='live-card'
+				/>
 			</div>
 
 			<div className='relative'>
@@ -85,7 +88,7 @@ export default function Index() {
 				</div>
 			</div>
 			{/* Tarjeta de live - se movio completamente de lugar solo para mobile */}
-			<LiveCard className='md:hidden' />
+			<LiveCard className='md:hidden' aria-hidden='true' />
 
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
 				<section>

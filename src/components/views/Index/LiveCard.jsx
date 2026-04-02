@@ -1,11 +1,11 @@
 import { Link } from 'react-router';
 import Button from '../../buttons/GeneralButton';
 
-export default function LiveCard({ className }) {
+export default function LiveCard({ className, ...props }) {
 	return (
 		<section
 			className={`bg-primary px-8 py-8 md:py-14 ${className}`}
-			aria-labelledby='live-card'>
+			{...props}>
 			<article className='flex flex-col gap-6 h-full'>
 				<figure>
 					<img
