@@ -11,7 +11,7 @@ export default function Index() {
 					<div className='[grid-area:1/1] z-1 flex items-end p-4 md:p-6 lg:p-10 bg-linear-to-tr from-black/80 via-black/20 to-transparent'>
 						<div className='grid'>
 							<img
-								className='static-invert w-40 md:w-60 h-auto [grid-area:1/1]'
+								className='invert w-40 md:w-60 h-auto [grid-area:1/1]'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá'
 							/>
@@ -106,7 +106,7 @@ export default function Index() {
 					</p>
 					<picture>
 						<img
-							className='static-invert'
+							className='invert'
 							src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 							alt='Ilustración oscura y emocional que representa el estilo metalcore y emo punk de Daliah'
 						/>
@@ -125,7 +125,7 @@ export default function Index() {
 					</ul>
 					<picture>
 						<img
-							className='static-invert'
+							className='invert'
 							src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 							alt='Integrantes de Daliah Banda con instrumentos, banda de metalcore colombiana'
 						/>
@@ -147,7 +147,7 @@ export default function Index() {
 						</p>
 						<picture>
 							<img
-								className='static-invert'
+								className='invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Portada del sencillo El amor se acabó de Daliah Banda'
 							/>
@@ -163,7 +163,7 @@ export default function Index() {
 						</p>
 						<picture>
 							<img
-								className='static-invert'
+								className='invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Portada ilustrada del sencillo Intento sobrevivir de Daliah Banda'
 							/>
@@ -179,7 +179,7 @@ export default function Index() {
 						</p>
 						<picture>
 							<img
-								className='static-invert'
+								className='invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Portada del sencillo Si podré de Daliah Banda, mensaje de autoafirmación'
 							/>
@@ -195,7 +195,7 @@ export default function Index() {
 						</p>
 						<picture>
 							<img
-								className='static-invert'
+								className='invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Imagen conceptual de protesta y rebeldía asociada al próximo sencillo Rebelión de Daliah'
 							/>
@@ -207,7 +207,7 @@ export default function Index() {
 						<p>Album recopilatorio de los singles con extras.</p>
 						<picture>
 							<img
-								className='static-invert'
+								className='invert'
 								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 								alt='Imagen conceptual del album Daliah de Daliah'
 							/>
@@ -234,7 +234,7 @@ export default function Index() {
 							</p>
 							<picture>
 								<img
-									className='static-invert'
+									className='invert'
 									src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
 									alt='Daliah Banda en concierto durante evento cultural universitario en Bogotá'
 								/>
@@ -255,7 +255,7 @@ export default function Index() {
 							</ul>
 							<picture className='inline-block w-[300px]'>
 								<img
-									className='static-invert'
+									className='invert'
 									src='https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg'
 									alt='Logos de Instagram y Facebook de Daliah Banda'
 								/>

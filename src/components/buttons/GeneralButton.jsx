@@ -36,7 +36,7 @@ export default function Button({
 		<button className={classes} {...props}>
 			{children}
 			{rigthArrow && (
-				<span class='material-symbols-outlined'>arrow_right_alt</span>
+				<span className='material-symbols-outlined'>arrow_right_alt</span>
 			)}
 		</button>
 	);

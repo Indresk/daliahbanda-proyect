@@ -56,7 +56,7 @@ export default function Header() {
 					<div className='basis-40'>
 						<NavLink to='/' className='flex items-end w-10'>
 							<img
-								className='static-invert'
+								className='invert'
 								src='https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg'
 								alt='Logo de Daliah Banda'
 							/>

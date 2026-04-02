@@ -31,7 +31,7 @@ export default function Footer() {
 						<div className='flex gap-4'>
 							<NavLink to='/' className='basis-40'>
 								<img
-									className='static-invert'
+									className='invert'
 									src='https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg'
 									alt='Logo de Daliah Banda'
 								/>

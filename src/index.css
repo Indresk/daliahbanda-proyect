@@ -41,16 +41,27 @@ img {
 	vertical-align: middle;
 }
 
-.black-icon {
-	filter: invert(1);
+@supports (not selector(::-webkit-scrollbar)) {
+	html {
+		scrollbar-color: var(--color-primary) var(--color-darkgray);
+		scrollbar-width: thin;
+	}
 }
 
-.static-invert {
-	filter: invert(1);
-}
-
-@media (prefers-color-scheme: light) {
-	.black-icon {
-		filter: invert(0);
+@supports selector(::-webkit-scrollbar) {
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: #000;
+	}
+	::-webkit-scrollbar-thumb {
+		background: var(--color-primary);
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: var(--color-primary-light);
+	}
+	::-webkit-scrollbar-button {
+		display: none;
 	}
 }
