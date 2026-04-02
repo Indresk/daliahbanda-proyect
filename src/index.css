@@ -1,58 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Pixelify+Sans:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap');
 
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --font-pixelify: "Pixelify Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-doto: "Doto", ui-sans-serif, system-ui, sans-serif;
-  --color-darkgray: #1e1e1e;
+	--font-pixelify: 'Pixelify Sans', ui-sans-serif, system-ui, sans-serif;
+	--font-doto: 'Doto', ui-sans-serif, system-ui, sans-serif;
+	--font-headline: 'Space Grotesk', sans-serif;
+	--color-darkgray: #1e1e1e;
+	--color-lightgray: #737373;
+	--color-primary: oklch(45.9% 0.187 3.815);
+	--color-primary-light: oklch(65.6% 0.241 354.308);
 }
 
 :root {
-  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+	font-family: 'Manrope', ui-sans-serif, sans-serif, system-ui;
+	line-height: 1.5;
+	font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #000;
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #000;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
 }
 
-html{
-  overflow-x: hidden;
+html {
+	overflow-x: hidden;
 }
 
-img{
-  display: inline-block;
-  object-fit: cover;
-  vertical-align: middle
+img {
+	display: inline-block;
+	object-fit: cover;
+	vertical-align: middle;
 }
 
-.black-icon{
-  filter: invert(1);
+.black-icon {
+	filter: invert(1);
 }
 
-.static-invert{
-  filter: invert(1);
+.static-invert {
+	filter: invert(1);
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #000;
-    background-color: #ffffff;
-  }
-  .black-icon{
-    filter: invert(0);
-  }
-  button {
-    background-color: oklch(45.9% 0.187 3.815);
-  }
+	:root {
+		color: #000;
+		background-color: #ffffff;
+	}
+	.black-icon {
+		filter: invert(0);
+	}
 }
