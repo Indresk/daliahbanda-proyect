@@ -1,9 +1,25 @@
 const variants = {
-	primary: 'bg-primary text-white',
-	secondary: 'text-primary',
-	invert: 'text-primary bg-white',
-	textLink: 'text-white bg-transparent',
-	ghost: 'bg-transparent text-primary',
+	primary: {
+		button: 'bg-primary text-white hover:text-primary',
+		fill: 'bg-white border-primary border-y',
+	},
+	secondary: {
+		button:
+			'border-2 border-primary text-primary bg-transparent hover:text-white',
+		fill: 'bg-primary border-white border-y',
+	},
+	invert: {
+		button: 'bg-white text-primary hover:text-white',
+		fill: 'bg-primary border-white border-y',
+	},
+	textLink: {
+		button: 'bg-transparent text-white hover:text-primary',
+		fill: 'bg-white',
+	},
+	ghost: {
+		button: 'bg-transparent text-primary hover:text-white',
+		fill: 'bg-primary',
+	},
 };
 
 const sizes = {
@@ -22,10 +38,12 @@ export default function Button({
 	rigthArrow = false,
 	...props
 }) {
+	const current = variants[variant];
+
 	const classes = [
-		'cursor-pointer font-headline uppercase font-bold transition-colors flex gap-4 items-center justify-center',
-		variants[variant],
+		'group relative isolate overflow-hidden flex items-center justify-center gap-4 font-headline font-bold uppercase cursor-pointer transition-all duration-300',
 		sizes[size],
+		current.button,
 		fullWidth ? 'w-full' : '',
 		className,
 	]
@@ -34,10 +52,18 @@ export default function Button({
 
 	return (
 		<button className={classes} {...props}>
-			{children}
-			{rigthArrow && (
-				<span className='material-symbols-outlined'>arrow_right_alt</span>
-			)}
+			<span
+				className={[
+					'absolute inset-y-0 left-[-10%] w-0 -z-10 transition-all duration-700 group-hover:w-[140%]',
+					current.fill,
+				].join(' ')}
+			/>
+			<span className='relative z-10 flex items-center gap-4'>
+				{children}
+				{rigthArrow && (
+					<span className='material-symbols-outlined'>arrow_right_alt</span>
+				)}
+			</span>
 		</button>
 	);
 }
