@@ -1,6 +1,8 @@
 import { Link } from 'react-router';
 import LiveCard from '../components/views/Index/LiveCard';
 import Button from '../components/buttons/GeneralButton';
+import Integrantes from '../components/views/Index/Integrantes';
+import RecommendedSong from '../components/views/Index/RecommendedSong';
 
 export default function Index() {
 	//
@@ -36,14 +38,14 @@ export default function Index() {
 				</div>
 			</section>
 			<div className='flex flex-row'>
-				<picture className='flex items-end basis-[40%] md:basis-[20%] pl-8 pt-8 md:pl-14 md:pt-14'>
+				<picture className='flex items-end basis-[40%] md:basis-[20%] pl-8 pt-14 md:pl-14'>
 					<img
 						className='block h-full w-auto max-w-full object-contain'
 						src='https://assets.daliahbanda.com/images/promo/promo-setlist-2025-v1.jpeg'
-						alt='Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá'
+						alt='Set list de Daliah Banda tocando en vivo en escenario de rock alternativo en Bogotá'
 					/>
 				</picture>
-				<section className='p-8 pb-0 md:p-14 md:pb-0 flex-1 flex flex-col gap-6 justify-center basis-[30%]'>
+				<section className='p-8 pt-14 pb-0 md:p-14 md:pb-0 flex-1 flex flex-col gap-6 justify-center basis-[30%]'>
 					<h2 className='tracking-tighter font-headline uppercase font-bold text-5xl'>
 						¿Quiénes somos?
 					</h2>
@@ -66,7 +68,7 @@ export default function Index() {
 			</div>
 
 			<div className='relative'>
-				<section className='flex justify-end pt-15 md:pt-20 lg:pt-30 xl:pt-50 pb-8 md:pb-14 px-8 md:pr-34'>
+				<section className='flex justify-end pt-15 md:pt-20 lg:pt-30 xl:pt-50 pb-14 px-8 md:pr-34'>
 					<div className='md:basis-[50%] flex flex-col gap-4'>
 						<h2 className='tracking-tighter font-headline uppercase font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'>
 							¿Quieres vernos en el escenario?
@@ -82,7 +84,7 @@ export default function Index() {
 					<img
 						className='w-full absolute bottom-[0px] left-[0px] z-[-2] aspect-4/3 md:aspect-5/2'
 						src='https://assets.daliahbanda.com/images/live/unal/show-randb2/unal-show2-34-v1.jpg'
-						alt='Mano del guitarrista ritmico tocando en vivo su guitarra stratocaster con stickers.'
+						alt='Guitarrista ritmico tocando en vivo su guitarra estilo stratocaster roja.'
 					/>
 					<div className='absolute inset-0 z-[-1] bg-gradient-to-b from-black via-black/60 to-transparent' />
 				</div>
@@ -90,48 +92,85 @@ export default function Index() {
 			{/* Tarjeta de live - se movio completamente de lugar solo para mobile */}
 			<LiveCard className='md:hidden' aria-hidden='true' />
 
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-				<section>
-					<h2>Estilo musical e influencias</h2>
-					<h3>Metalcore, Pop Emo Punk y Rock Alternativo</h3>
-					<p>
-						El sonido de Daliah se mueve entre el metalcore moderno, el pop emo
-						punk y el rock alternativo, con influencias del punk rock de los 90
-						y 2000 y el metal progresivo de décadas posteriores.
-					</p>
-					<p>
-						Esta combinación da como resultado canciones melódicas, intensas y
-						cargadas de energía, con estructuras dinámicas y una fuerte
-						identidad emocional.
-					</p>
-					<picture>
-						<img
-							className='invert'
-							src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
-							alt='Ilustración oscura y emocional que representa el estilo metalcore y emo punk de Daliah'
-						/>
-					</picture>
+			<div className=''>
+				<section className='flex flex-col md:flex-row px-8 py-14 gap-8 md:p-14 md:gap-14'>
+					<div className='flex flex-col gap-4 md:gap-14 text-base md:text-lg basis-[50%] self-center'>
+						<div>
+							<h2 className='tracking-tighter font-headline uppercase font-bold text-5xl'>
+								Estilo musical e{' '}
+								<span className='text-primary-light'>influencias</span>
+							</h2>
+							<h3 className='tracking-tighter font-headline uppercase text-sm text-lightgray'>
+								Metalcore, Pop Emo Punk y Rock Alternativo
+							</h3>
+						</div>
+						<p>
+							Nuestro sonido como Daliah se mueve entre el metalcore moderno, el
+							pop emo punk y el rock alternativo, con influencias del punk rock
+							de los 90 y 2000 y el metal progresivo de décadas posteriores.
+						</p>
+						<p>
+							De ahí que nuestras canciones sean tan melódicas, intensas y
+							cargadas de energía, con estructuras dinámicas y una fuerte
+							identidad emocional.
+						</p>
+					</div>
+					<div className='grid basis-[50%] grid-cols-[1fr_1fr] grid-rows-6 gap-x-14 md:gap-x-14 lg:gap-x-20 gap-y-6 lg:px-14'>
+						<picture className='col-start-1 row-start-2 row-span-2'>
+							<img
+								className='h-full w-full object-cover aspect-square'
+								src='https://assets.daliahbanda.com/images/backstage/backstage-usb2-v1.jpg'
+								alt='Daliah Banda posando en los camerinos de la Universidad San Buenaventura en Bogotá.'
+							/>
+						</picture>
+						<picture className='col-start-1 row-start-5 row-span-2'>
+							<img
+								className='h-full w-full object-cover aspect-square'
+								src='https://assets.daliahbanda.com/images/backstage/recording-silvia-1-v1.webp'
+								alt='Silvia, cantante de Daliah Banda durante la sesión de grabación de voces.'
+							/>
+						</picture>
+						<picture className='col-start-2 row-start-1 row-span-2'>
+							<img
+								className='h-full w-full object-cover aspect-square'
+								src='https://assets.daliahbanda.com/images/live/cambridge/cambridge-p2p-v1.jpg'
+								alt='Silvia y Mike de Daliah Banda durante presentación en vivo en el colegio Cambridge en bogotá.'
+							/>
+						</picture>
+						<picture className='col-start-2 row-start-4 row-span-2'>
+							<img
+								className='h-full w-full object-cover aspect-square'
+								src='https://assets.daliahbanda.com/images/live/kaiju/kaiju-show-v1.jpeg'
+								alt='Daliah Banda durante presentación en vivo en el bar Kaiju en Bogotá.'
+							/>
+						</picture>
+					</div>
 				</section>
-				<section>
-					<h2>Integrantes de la banda</h2>
-					<h3>Formación actual</h3>
-					<ul>
-						<li>Silvia Berrio - Voz principal</li>
-						<li>Rafael Salcedo - Teclados</li>
-						<li>Michael Villaizan - Guitarra principal</li>
-						<li>Jesús Ardiles - Guitarra rítmica y coros</li>
-						<li>Christian Ramírez - Bajo y coros</li>
-						<li>Nicolás Araújo - Batería</li>
-					</ul>
-					<picture>
-						<img
-							className='invert'
-							src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
-							alt='Integrantes de Daliah Banda con instrumentos, banda de metalcore colombiana'
-						/>
-					</picture>
+
+				<section className='relative'>
+					<div className='bg-[#d8d8d8] p-4 px-14 md:p-14 md:p-18 -rotate-12 flex justify-around items-center scale-120 z-[-1] w-full absolute top-0 left-[0%]'>
+						<div>
+							<h2 className='tracking-tighter font-headline uppercase font-bold text-2xl md:text-5xl text-black'>
+								<span className='text-primary'>Integrantes</span> de la banda
+							</h2>
+							<h3 className='tracking-tighter font-headline uppercase text-sm text-lightgray'>
+								Formación actual
+							</h3>
+						</div>
+						<picture className='basis-30 rotate-12'>
+							<img
+								src='https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg'
+								alt='Logo de Daliah Banda sobre fondo blanco.'
+							/>
+						</picture>
+					</div>
+					<div className='py-15 md:py-23'></div>
+					<Integrantes />
 				</section>
 			</div>
+			<section className='px-8 pb-14 md:px-14'>
+				<RecommendedSong />
+			</section>
 
 			<section className=''>
 				<h2 className='text-4xl'>Nuestra música</h2>
