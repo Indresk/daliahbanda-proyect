@@ -10,7 +10,7 @@ function App({ children }) {
 			<Provider>
 				<div className='grid grid-rows-[auto_1fr_auto] min-h-screen overflow-x-hidden'>
 					<Header />
-					<main>
+					<main className='w-[100vw]'>
 						<Outlet />
 						{children}
 					</main>

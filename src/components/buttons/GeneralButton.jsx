@@ -41,7 +41,7 @@ export default function Button({
 	const current = variants[variant];
 
 	const classes = [
-		'group relative isolate overflow-hidden flex items-center justify-center gap-4 font-headline font-bold uppercase cursor-pointer transition-all duration-300',
+		'group relative isolate  flex items-center justify-center gap-4 font-headline font-bold uppercase cursor-pointer transition-all duration-300',
 		sizes[size],
 		current.button,
 		fullWidth ? 'w-full' : '',
@@ -54,14 +54,17 @@ export default function Button({
 		<button className={classes} {...props}>
 			<span
 				className={[
-					'absolute inset-y-0 left-[-10%] w-0 -z-10 transition-all duration-700 group-hover:w-[140%]',
+					'absolute inset-y-0 left-[0%] w-0 -z-10 transition-all duration-700 group-hover:w-[100%]',
+					rigthArrow && 'group-hover:w-[110%]',
 					current.fill,
 				].join(' ')}
 			/>
 			<span className='relative z-10 flex items-center gap-4'>
 				{children}
 				{rigthArrow && (
-					<span className='material-symbols-outlined'>arrow_right_alt</span>
+					<span className='material-symbols-outlined group-hover:translate-x-5'>
+						arrow_right_alt
+					</span>
 				)}
 			</span>
 		</button>

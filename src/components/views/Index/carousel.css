@@ -8,5 +8,9 @@
 }
 
 .animation {
-	animation: infiniteloop 20s infinite linear;
+	animation: infiniteloop 60s infinite linear;
 }
+
+/* .card{
+	flex:
+} */

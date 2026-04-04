@@ -173,7 +173,7 @@ export default function Index() {
 				<RecommendedSong />
 			</div>
 
-			{/* <FlyersCarousel /> */}
+			<FlyersCarousel />
 		</>
 	);
 }

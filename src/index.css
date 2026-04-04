@@ -46,6 +46,10 @@ img {
 	scrollbar-width: none;
 }
 
+strong {
+	color: var(--color-primary-light);
+}
+
 @supports (not selector(::-webkit-scrollbar)) {
 	html {
 		scrollbar-color: var(--color-primary) var(--color-darkgray);

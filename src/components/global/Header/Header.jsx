@@ -15,9 +15,9 @@ export default function Header() {
 	const location = useLocation();
 
 	const navigationLinks = [
-		{ title: 'Discografía', link: '/albums' },
+		// { title: 'Discografía', link: '/albums' },
 		{ title: 'Galería', link: '/gallery' },
-		{ title: 'Tienda', link: '/shop' },
+		// { title: 'Tienda', link: '/shop' },
 	];
 
 	useBlockScroll(dropdown);
@@ -96,9 +96,9 @@ export default function Header() {
 							<path stroke='none' d='M0 0h24v24H0z' fill='none' />
 							<path d='M4 11l8 3l8 -3' />
 						</svg>
-						<NavLink to='/login' className={'hidden md:flex'}>
+						{/* <NavLink to='/login' className={'hidden md:flex'}>
 							<Button size='sm'>Nuestra comunidad</Button>
-						</NavLink>
+						</NavLink> */}
 					</div>
 
 					{/* SMALL */}
@@ -124,9 +124,9 @@ export default function Header() {
 											</li>
 										))}
 									</ul>
-									<NavLink to='/login'>
+									{/* <NavLink to='/login'>
 										<Button fullWidth>Nuestra comunidad</Button>
-									</NavLink>
+									</NavLink> */}
 								</div>
 							</div>
 						</div>

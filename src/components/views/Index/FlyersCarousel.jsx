@@ -74,15 +74,15 @@ const flyers = [
 
 export default function FlyersCarousel() {
 	return (
-		<section className='flex flex-col px-8 pb-14 md:px-14 gap-8'>
-			<h2 className='tracking-tighter font-headline uppercase font-bold text-5xl'>
+		<section className='flex flex-col px-8 pb-14 md:px-14 gap-8 '>
+			<h2 className='tracking-tighter font-headline uppercase font-bold text-3xl md:text-5xl'>
 				Trayectoria y <span className='text-primary-light'>presentaciones</span>
 			</h2>
-			<div className='overflow-x-scroll no-scrollbar w-full shrink-1'>
-				<div className='flex gap-4 w-[400%] animation'>
-					<div className='flex gap-4 '>
+			<div className='w-full relative no-scrollbar overflow-hidden'>
+				<div className='wrapper flex'>
+					<div className='flex animation'>
 						{flyers.map((event) => (
-							<picture className='w-full'>
+							<picture className='card pr-4 flex grow-0 shrink-0 basis-[10em] lg:basis-[20em]'>
 								<LazyImage
 									className='aspect-square'
 									src={event.link}
@@ -91,9 +91,9 @@ export default function FlyersCarousel() {
 							</picture>
 						))}
 					</div>
-					<div aria-hidden className='flex gap-4 '>
+					<div aria-hidden className='flex animation'>
 						{flyers.map((event) => (
-							<picture className='w-full'>
+							<picture className='card pr-4 flex grow-0 shrink-0 basis-[10em] lg:basis-[20em]'>
 								<LazyImage
 									className='aspect-square'
 									src={event.link}
@@ -103,17 +103,21 @@ export default function FlyersCarousel() {
 						))}
 					</div>
 				</div>
+				<div className='absolute top-0 left-0 w-full h-full bg-linear-[90deg,black_0%,transparent_10%,transparent_90%,black_100%]'></div>
 			</div>
-			<p>
-				Como Daliah hemos participado diversos espacios de la escena rock
-				bogotana como The Music Hall, The Grange Bar Records, La Chorizería,
-				Jersey Bar y Jackass Rock Bar.
-			</p>
-			<p>
-				También hemos sido parte de eventos culturales y educativos, incluyendo
-				presentaciones en la Universidad Nacional de Colombia y en la
-				Universidad San Buenaventura.
-			</p>
+			<div className='text-[12px]'>
+				<p>
+					Como Daliah hemos participado diversos espacios de la{' '}
+					<strong>escena rock bogotana</strong> como The Music Hall, The Grange
+					Bar Records, La Chorizería, Jersey Bar y Jackass Rock Bar.
+				</p>
+				<p>
+					También hemos sido parte de eventos{' '}
+					<strong>culturales y educativos</strong>, incluyendo presentaciones en
+					la Universidad Nacional de Colombia y en la Universidad San
+					Buenaventura.
+				</p>
+			</div>
 		</section>
 	);
 }

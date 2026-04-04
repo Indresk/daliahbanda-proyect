@@ -4,9 +4,15 @@ import SongOptions from '../../buttons/SongOptions';
 export default function YmalItem({ song }) {
 	const navigate = useNavigate();
 
-	function handlePlay() {}
+	function handlePlay() {
+		// apertura a link temporal
+		window.open(song.link, '_blank');
+	}
 
-	function handleCopy() {}
+	function handleCopy() {
+		//implementar apertura de alert que avise que se copio
+		navigator.clipboard.writeText(song.link);
+	}
 
 	return (
 		<article className='flex flex-col border-lightgray border-b m-2 pb-2 gap-2 w-fit'>
