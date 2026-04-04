@@ -37,6 +37,15 @@ img {
 	vertical-align: middle;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
 @supports (not selector(::-webkit-scrollbar)) {
 	html {
 		scrollbar-color: var(--color-primary) var(--color-darkgray);

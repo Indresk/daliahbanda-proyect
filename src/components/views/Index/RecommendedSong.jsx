@@ -1,13 +1,38 @@
 import { Link } from 'react-router';
 import Button from '../../buttons/GeneralButton';
+import YmalItem from '../Albums/YmalItem';
+import BigPlayButton from '../../../assets/BigPlayButton';
 
-const song = {
+const fetch = {
 	name: 'Intento Sobrevivir',
 	description:
 		'Una canción que retrata el conflicto interno de quien no logra expresar sus emociones. Letras honestas y una atmósfera intensa acompañan una narrativa profundamente humana.',
 	cover:
 		'https://assets.daliahbanda.com/images/covers/intento-sobrevivir-v2.jpg',
+	type: 'canción',
+	year: '2022',
+	externalLinks: { spotify: '', youtube: '', apple: '', amazon: '' },
+	ymal: [
+		{
+			name: 'Si podré',
+			description:
+				'Una canción que retrata lire.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel facilis fugiat facere nobis, ex accusamus ipsum reprehenderit laboriosam illo blanditiis consectetur cupiditate omnis officiis! Ipsum voluptas eum ad cupiditate tempore?',
+			cover:
+				'https://assets.daliahbanda.com/images/covers/intento-sobrevivir-v2.jpg',
+			type: 'canción',
+		},
+		{
+			name: 'Daliah',
+			description:
+				'Una canción Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel facilis fugiat facere nobis, ex accusamus ipsum reprehenderit laboriosam illo blanditiis consectetur cupiditate omnis officiis! Ipsum voluptas eum ad cupiditate tempore?',
+			cover:
+				'https://assets.daliahbanda.com/images/covers/intento-sobrevivir-v2.jpg',
+			type: 'album',
+		},
+	],
 };
+
+const { ymal, ...song } = fetch;
 
 export default function RecommendedSong() {
 	return (
@@ -17,16 +42,18 @@ export default function RecommendedSong() {
 					<h2>Nuestra música</h2>
 				</Button>
 			</Link>
-			<div className='song-info-container grid grid-cols-2 gap-7'>
-				<div className='title-container place-content-center pt-13 pb-13 pl-13 '>
-					<div className='description-section flex '>
-						<img
-							className='play-icon size-13 self-center mr-7'
-							src='https://www.freeiconspng.com/uploads/play-button-icon-png-15.png'
-							alt=''
-						/>
-						<div>
-							<h3 className='song-title text-[2.6rem] '>{song.name}</h3>
+			<div className='song-info-container px-8 py-14 md:px-14 flex flex-col lg:flex-row gap-7'>
+				<div className='title-container flex flex-col justify-center order-2 lg:order-1 gap-8 basis-[50%] xl:basis-[70%]'>
+					<div className='description-section flex items-center gap-4'>
+						<BigPlayButton className='text-primary w-full hidden md:flex basis-20 shrink-0 cursor-pointer hover:scale-120 transition-transform' />
+						<div className='basis-[100%] md:basis-[80%] '>
+							<small className='tracking-tighter font-headline uppercase text-[12px] text-primary'>
+								{song.type + ' - ' + song.year}
+							</small>
+							<h3 className='song-title tracking-tighter font-headline uppercase font-bold text-2xl'>
+								{song.name}
+							</h3>
+
 							<p className='song-description'> {song.description}</p>
 						</div>
 					</div>
@@ -36,15 +63,25 @@ export default function RecommendedSong() {
 						<span>Youtube Music</span>
 						<span>Amazon Music</span>
 					</div>
-					<hr className='text-[#717171]' />
+					<hr className='text-lightgray' />
+					<div className='flex justify-around items-center flex-wrap md:flex-nowrap w-full'>
+						<h3 className='tracking-tighter font-headline uppercase font-bold text-2xl hidden md:block'>
+							Podría interesarte
+						</h3>
+						<YmalItem song={ymal[0]} />
+						<YmalItem song={ymal[1]} />
+					</div>
 				</div>
-				<div className='song-image-container'>
+				<picture className='song-image-container relative order-1 lg:order-2 flex items-center basis-[50%]'>
 					<img
 						src={song.cover}
-						className='w-full pt-13 pb-13 pr-13'
-						alt={song.name + ' Oficial Banner'}
+						className='aspect-square'
+						alt={'Portada oficial de ' + song.name + '.'}
 					/>
-				</div>
+					<div className='w-full absolute bottom-4 left-4'>
+						<BigPlayButton className='text-primary w-[20%] md:hidden cursor-pointer hover:scale-120 transition-transform' />
+					</div>
+				</picture>
 			</div>
 		</section>
 	);

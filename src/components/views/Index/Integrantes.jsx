@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import './integrantes.css';
 
 const integrantes = [
 	{
@@ -55,13 +54,11 @@ export default function Integrantes() {
 	availables.splice(current, 1);
 
 	function startInterval() {
-		if (intervalRef.current) {
-			clearInterval(intervalRef.current);
-		}
+		if (intervalRef.current) clearInterval(intervalRef.current);
 
 		intervalRef.current = setInterval(() => {
-			setCurrent(Math.floor(Math.random() * integrantes.length));
-		}, 7000);
+			setCurrent((prev) => (prev + 1) % integrantes.length);
+		}, 7300);
 	}
 
 	function handleSelectedChange(i) {
@@ -100,7 +97,7 @@ export default function Integrantes() {
 					/>
 					<span
 						key={current}
-						className='absolute bottom-0 left-0 w-full border-primary border-b-2 origin-left animate-progress'></span>
+						className='absolute bottom-0 left-0 w-full border-primary border-b-2 origin-left scale-x-100 starting:scale-x-0 transition-[scale] duration-7000 ease-linear'></span>
 				</picture>
 			</div>
 			<div className='overflow-auto w-full'>
@@ -111,7 +108,7 @@ export default function Integrantes() {
 							key={p.id}
 							onClick={() => handleSelectedChange(p.id)}>
 							<img
-								className='aspect-video brightness'
+								className='aspect-video'
 								src={p.img}
 								alt={`${p.name} interpretando ${p.inst.toLowerCase()} en una presentación en vivo de Daliah Banda.`}
 							/>

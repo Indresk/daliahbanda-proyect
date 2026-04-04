@@ -3,6 +3,7 @@ import LiveCard from '../components/views/Index/LiveCard';
 import Button from '../components/buttons/GeneralButton';
 import Integrantes from '../components/views/Index/Integrantes';
 import RecommendedSong from '../components/views/Index/RecommendedSong';
+import FlyersCarousel from '../components/views/Index/FlyersCarousel';
 
 export default function Index() {
 	//
@@ -115,7 +116,7 @@ export default function Index() {
 							identidad emocional.
 						</p>
 					</div>
-					<div className='grid basis-[50%] grid-cols-[1fr_1fr] grid-rows-6 gap-x-14 md:gap-x-14 lg:gap-x-20 gap-y-6 lg:px-14'>
+					<div className='grid basis-[50%] grid-cols-[1fr_1fr] grid-rows-6 gap-x-8 md:gap-x-14 lg:gap-x-20 gap-y-6 lg:px-14'>
 						<picture className='col-start-1 row-start-2 row-span-2'>
 							<img
 								className='h-full w-full object-cover aspect-square'
@@ -168,141 +169,11 @@ export default function Index() {
 					<Integrantes />
 				</section>
 			</div>
-			<section className='px-8 pb-14 md:px-14'>
+			<div className='px-8 pb-14 md:px-14'>
 				<RecommendedSong />
-			</section>
-
-			<section className=''>
-				<h2 className='text-4xl'>Nuestra música</h2>
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4'>
-					<article>
-						<h3>Single: El amor se acabó</h3>
-						<small>El amor se acabó (2022)</small>
-						<p>
-							Primer sencillo de la banda, una canción que explora el rechazo
-							amoroso desde un monólogo introspectivo. El tema combina
-							sensibilidad emocional con una instrumentación potente y
-							contemporánea.
-						</p>
-						<picture>
-							<img
-								className='invert'
-								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
-								alt='Portada del sencillo El amor se acabó de Daliah Banda'
-							/>
-						</picture>
-					</article>
-					<article>
-						<h3>Single: Intento sobrevivir</h3>
-						<small>Intento sobrevivir (2023)</small>
-						<p>
-							Una canción que retrata el conflicto interno de quien no logra
-							expresar sus emociones. Letras honestas y una atmósfera intensa
-							acompañan una narrativa profundamente humana.
-						</p>
-						<picture>
-							<img
-								className='invert'
-								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
-								alt='Portada ilustrada del sencillo Intento sobrevivir de Daliah Banda'
-							/>
-						</picture>
-					</article>
-					<article>
-						<h3>Single: Si podré</h3>
-						<small>Si podré (2024)</small>
-						<p>
-							Canción dedicada a quienes dudan de sí mismos y sienten presión
-							por encajar en moldes sociales. Su mensaje directo y el trabajo
-							instrumental han tenido una recepción destacada entre el público.
-						</p>
-						<picture>
-							<img
-								className='invert'
-								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
-								alt='Portada del sencillo Si podré de Daliah Banda, mensaje de autoafirmación'
-							/>
-						</picture>
-					</article>
-					<article>
-						<h3>Single: Rebelión</h3>
-						<small>Rebelión (2025)</small>
-						<p>
-							Una canción que expresa indignación frente a las nuevas dictaduras
-							en América Latina y la apatía social. Actualmente en proceso de
-							publicación.
-						</p>
-						<picture>
-							<img
-								className='invert'
-								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
-								alt='Imagen conceptual de protesta y rebeldía asociada al próximo sencillo Rebelión de Daliah'
-							/>
-						</picture>
-					</article>
-					<article>
-						<h3>Album: Daliah</h3>
-						<small>Daliah (Próximamente)</small>
-						<p>Album recopilatorio de los singles con extras.</p>
-						<picture>
-							<img
-								className='invert'
-								src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
-								alt='Imagen conceptual del album Daliah de Daliah'
-							/>
-						</picture>
-					</article>
-				</div>
-			</section>
-
-			<div className='border-t border-gray-200 py-20 sm:py-32'>
-				<div className=''>
-					<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-						<section>
-							<h2>Trayectoria y presentaciones</h2>
-							<p>
-								Desde su formación, Daliah ha participado en la escena rock
-								bogotana en espacios como The Music Hall, The Grange Bar
-								Records, La Chorizería, Jersey Bar y Jackass Rock Bar.
-							</p>
-							<p>
-								También ha sido parte de eventos culturales y educativos,
-								incluyendo presentaciones en la Universidad Nacional de
-								Colombia, donde resultaron ganadores del reality “Batalla de
-								Bandas FACARTES - Rock n Blend”.
-							</p>
-							<picture>
-								<img
-									className='invert'
-									src='https://assets.daliahbanda.com/brand/logos/full/logo-daliah-vector-black-v1.webp'
-									alt='Daliah Banda en concierto durante evento cultural universitario en Bogotá'
-								/>
-							</picture>
-						</section>
-						<section>
-							<h2>Contacto y redes oficiales</h2>
-							<p>Para contrataciones, prensa o colaboraciones:</p>
-							<ul>
-								<li>
-									Correo:{' '}
-									<a href='mailto:daliahbanda@gmail.com'>
-										daliahbanda@gmail.com
-									</a>
-								</li>
-								<li>Instagram: @daliah_banda</li>
-								<li>Facebook: Daliah Banda</li>
-							</ul>
-							<picture className='inline-block w-[300px]'>
-								<img
-									className='invert'
-									src='https://assets.daliahbanda.com/brand/logos/icon/logo-d-daliah-vector-v1.svg'
-									alt='Logos de Instagram y Facebook de Daliah Banda'
-								/>
-							</picture>
-						</section>
-					</div>
-				</div>
 			</div>
+
+			{/* <FlyersCarousel /> */}
 		</>
 	);
 }
