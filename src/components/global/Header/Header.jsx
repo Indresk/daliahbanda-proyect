@@ -16,7 +16,7 @@ export default function Header() {
 
 	const navigationLinks = [
 		// { title: 'Discografía', link: '/albums' },
-		{ title: 'Galería', link: '/gallery' },
+		// { title: 'Galería', link: '/gallery' },
 		// { title: 'Tienda', link: '/shop' },
 	];
 

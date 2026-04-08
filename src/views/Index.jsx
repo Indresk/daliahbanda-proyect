@@ -51,14 +51,14 @@ export default function Index() {
 						¿Quiénes somos?
 					</h2>
 					<p>
-						Somos una agrupación musical colombiana con más de cinco años de
+						Somos una agrupación musical <strong>colombiana</strong> con más de cinco años de
 						trayectoria en la escena alternativa. Nuestra propuesta nace del
 						punk rock y el pop punk clásico, integrando la complejidad del metal
 						progresivo para crear un sonido energético y contemporáneo.
 					</p>
 					<p>
-						En nuestras letras abordamos temáticas emocionales, sociales y
-						políticas, invitando a la reflexión personal y colectiva.
+						En nuestras letras abordamos temáticas <strong>emocionales, sociales y
+						políticas</strong>, invitando a la reflexión personal y colectiva.
 					</p>
 				</section>
 
@@ -106,14 +106,14 @@ export default function Index() {
 							</h3>
 						</div>
 						<p>
-							Nuestro sonido como Daliah se mueve entre el metalcore moderno, el
-							pop emo punk y el rock alternativo, con influencias del punk rock
+							Nuestro sonido como Daliah se mueve entre el metalcore moderno, el 
+							<strong> pop emo punk</strong> y el rock alternativo, con influencias del punk rock
 							de los 90 y 2000 y el metal progresivo de décadas posteriores.
 						</p>
 						<p>
 							De ahí que nuestras canciones sean tan melódicas, intensas y
-							cargadas de energía, con estructuras dinámicas y una fuerte
-							identidad emocional.
+							<strong> cargadas de energía</strong>, con estructuras dinámicas y una fuerte
+							identidad <strong>emocional</strong>.
 						</p>
 					</div>
 					<div className='grid basis-[50%] grid-cols-[1fr_1fr] grid-rows-6 gap-x-8 md:gap-x-14 lg:gap-x-20 gap-y-6 lg:px-14'>

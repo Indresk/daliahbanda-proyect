@@ -14,6 +14,9 @@ import AlbumsIndex from './components/views/Albums/AlbumsIndex';
 import AlbumView from './components/views/Albums/AlbumView';
 import Test from './views/Test';
 import GalleryView from './views/GalleryView';
+import GalleryIndex from './components/views/Gallery/GalleryIndex';
+import FilterView from './components/views/Gallery/FilterView';
+import { Component } from 'react';
 
 export const routes = [
 	{
@@ -67,6 +70,18 @@ export const routes = [
 				path: 'gallery',
 				loader: () => ({}),
 				Component: () => <GalleryView />,
+				children:[
+					{
+						index: true,
+						Component:()=><GalleryIndex/>
+
+					},
+					{
+						path:':filtername',
+						loader:()=>({}),
+						Component:()=><FilterView/>
+					}
+				]
 			},
 			{
 				path: 'shop',

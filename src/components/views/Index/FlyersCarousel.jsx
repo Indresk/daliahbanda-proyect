@@ -81,8 +81,8 @@ export default function FlyersCarousel() {
 			<div className='w-full relative no-scrollbar overflow-hidden'>
 				<div className='wrapper flex'>
 					<div className='flex animation'>
-						{flyers.map((event) => (
-							<picture className='card pr-4 flex grow-0 shrink-0 basis-[10em] lg:basis-[20em]'>
+						{flyers.map((event,i) => (
+							<picture key={i} className='card pr-4 flex grow-0 shrink-0 basis-[10em] lg:basis-[20em]'>
 								<LazyImage
 									className='aspect-square'
 									src={event.link}
@@ -92,8 +92,8 @@ export default function FlyersCarousel() {
 						))}
 					</div>
 					<div aria-hidden className='flex animation'>
-						{flyers.map((event) => (
-							<picture className='card pr-4 flex grow-0 shrink-0 basis-[10em] lg:basis-[20em]'>
+						{flyers.map((event,i) => (
+							<picture key={i} className='card pr-4 flex grow-0 shrink-0 basis-[10em] lg:basis-[20em]'>
 								<LazyImage
 									className='aspect-square'
 									src={event.link}
