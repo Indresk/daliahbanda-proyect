@@ -41,7 +41,7 @@ export default function Button({
 	const current = variants[variant];
 
 	const classes = [
-		'group relative isolate  flex items-center justify-center gap-4 font-headline font-bold uppercase cursor-pointer transition-all duration-300',
+		'group relative isolate flex items-center justify-center gap-4 font-headline font-bold uppercase cursor-pointer transition-all duration-300',
 		sizes[size],
 		current.button,
 		fullWidth ? 'w-full' : '',
@@ -51,11 +51,13 @@ export default function Button({
 		.join(' ');
 
 	return (
-		<button className={classes} {...props}>
+		<button
+			className={`${classes} ${variant !== 'textLink' && 'overflow-hidden'}`}
+			{...props}>
 			<span
 				className={[
-					'absolute inset-y-0 left-[0%] w-0 -z-10 transition-all duration-700 group-hover:w-[100%]',
-					rigthArrow && 'group-hover:w-[110%]',
+					'absolute inset-y-0 left-[-1%] w-0 -z-10 transition-all duration-700 group-hover:w-[101%]',
+					rigthArrow && variant === 'textLink' && 'group-hover:w-[109%]',
 					current.fill,
 				].join(' ')}
 			/>

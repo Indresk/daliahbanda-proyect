@@ -27,8 +27,8 @@ export default function YmalItem({ song }) {
 					{song.type == 'album' ? (
 						<>
 							<g filter='url(#filter0_d_38_383)'>
-								<g clip-path='url(#clip0_38_383)'>
-									<g clip-path='url(#clip1_38_383)'>
+								<g clipPath='url(#clip0_38_383)'>
+									<g clipPath='url(#clip1_38_383)'>
 										<path d='M68 64H4V0H68V64ZM36 14C26.0589 14 18 22.0589 18 32C18 41.9411 26.0589 50 36 50C45.9411 50 54 41.9411 54 32C54 22.0589 45.9411 14 36 14ZM36 15C45.3888 15 53 22.6112 53 32C53 41.3888 45.3888 49 36 49C26.6112 49 19 41.3888 19 32C19 22.6112 26.6112 15 36 15ZM36 17C27.7157 17 21 23.7157 21 32C21 40.2843 27.7157 47 36 47C44.2843 47 51 40.2843 51 32C51 23.7157 44.2843 17 36 17ZM36 30C37.1046 30 38 30.8954 38 32C38 33.1046 37.1046 34 36 34C34.8954 34 34 33.1046 34 32C34 30.8954 34.8954 30 36 30ZM36 31C35.4477 31 35 31.4477 35 32C35 32.5523 35.4477 33 36 33C36.5523 33 37 32.5523 37 32C37 31.4477 36.5523 31 36 31Z' />
 									</g>
 								</g>
@@ -41,8 +41,8 @@ export default function YmalItem({ song }) {
 									width='72'
 									height='72'
 									filterUnits='userSpaceOnUse'
-									color-interpolation-filters='sRGB'>
-									<feFlood flood-opacity='0' result='BackgroundImageFix' />
+									colorInterpolationFilters='sRGB'>
+									<feFlood floodOpacity='0' result='BackgroundImageFix' />
 									<feColorMatrix
 										in='SourceAlpha'
 										type='matrix'
