@@ -1,4 +1,9 @@
 import { useLoaderData, useParams } from 'react-router';
+import {
+	getImagesByEvents,
+	getImagesByIntegrantes,
+	getBackstageImages,
+} from './services/firebase.js';
 
 import Index from './views/Index';
 import LiveView from './views/LiveView';
@@ -70,18 +75,33 @@ export const routes = [
 				path: 'gallery',
 				loader: () => ({}),
 				Component: () => <GalleryView />,
-				children:[
+				children: [
 					{
 						index: true,
-						Component:()=><GalleryIndex/>
-
+						Component: () => <GalleryIndex />,
 					},
 					{
-						path:':filtername',
-						loader:()=>({}),
-						Component:()=><FilterView/>
-					}
-				]
+						path: ':filter',
+						loader: () => {},
+						Component: () => <FilterView />,
+					},
+					{
+						path: 'backstage',
+						loader: () => ({}),
+						Component: () => <FilterView />,
+					},
+					{
+						path: 'event',
+						loader: () => {},
+						children: [
+							{
+								path: ':filter',
+								loader: () => {},
+								Component: () => <FilterView />,
+							},
+						],
+					},
+				],
 			},
 			{
 				path: 'shop',
